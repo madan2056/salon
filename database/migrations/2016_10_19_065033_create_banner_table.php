@@ -18,6 +18,7 @@ class CreateBannerTable extends Migration
             $table->string('title', 250)->nullable();
             $table->text('image')->nullable();
             $table->text('link')->nullable();
+            $table->text('link_button_text')->nullable();
             $table->boolean('status')->index()->default(0);
             $table->unsignedInteger('rank')->nullable();
             $table->timestamps();

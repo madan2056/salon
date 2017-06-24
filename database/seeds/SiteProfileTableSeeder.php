@@ -12,11 +12,11 @@ class SiteProfileTableSeeder extends Seeder
     public function run()
     {
         DB::table('site_profile')->insert([
-            'company_name'  => 'Creative Link Pvt. Ltd.',
-            'email'         => 'info@creativelinknepal.com',
+            'company_name'  => 'Salon & Day Spa',
+            'email'         => 'info@salonanspa.com',
             'address'       => '102 Machhigalli, Bagbazar, Kathmandu',
-            'facebook_link' => 'https://www.facebook.com/creativelinknepal/',
-            'logo'          => 'Creative-Logo.png',
+            'facebook_link' => '',
+            'logo'          => '',
         ]);
     }
 }

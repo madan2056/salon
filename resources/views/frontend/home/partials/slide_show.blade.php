@@ -7,9 +7,9 @@
                         <div class="item @if($loop->first) active @endif"
                              style="background-image: url({{asset('images/banner/'.$banner->image)}});">
                             <div class="caption">
-                                <h1 class="animated fadeInLeftBig">{{$banner->title}}</h1>
-                                <p class="animated fadeInRightBig">Best Service, Best Price</p>
-                                <p class="animated fadeInDown"><a href="contact.php">Contact Us Today</a></p>
+                                <h1 class="animated fadeInLeftBig">{{ $banner->title }}</h1>
+                                <p class="animated fadeInRightBig">{{ $banner->title2 }}</p>
+                                <p class="animated fadeInDown"><a href="{{ $banner->link?$banner->link:'#' }}">{{ $banner->link_button_text }}</a></p>
                             </div>
                         </div>
                     @endforeach

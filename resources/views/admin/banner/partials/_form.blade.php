@@ -1,8 +1,12 @@
 <div class="row">
-    <div class="col-lg-8">
-       {!! Form::label('title', 'Title' ) !!}
-
+    <div class="col-lg-4">
+       {!! Form::label('title', 'Title 1' ) !!}
        {!! Form::text('title', null, [ 'id' => 'title', 'placeholder' => 'Title' , 'class' => 'form-control' ]) !!}
+    </div>
+
+    <div class="col-lg-4">
+        {!! Form::label('title2', 'Title 2' ) !!}
+        {!! Form::text('title2', null, [ 'id' => 'title', 'placeholder' => 'Title' , 'class' => 'form-control' ]) !!}
     </div>
 
     <div class="col-lg-4">
@@ -55,5 +59,9 @@
     <div class="col-lg-8">
         {!! Form::label('link', 'Link' ) !!}
         {!! Form::url('link', null, [ 'id' => 'link', 'placeholder' => 'Link' , 'class' => 'form-control' ]) !!}
+    </div>
+    <div class="col-lg-4">
+        {!! Form::label('link_button_text', 'Button Text' ) !!}
+        {!! Form::text('link_button_text', null, [ 'placeholder' => 'View More' , 'class' => 'form-control' ]) !!}
     </div>
 </div>
