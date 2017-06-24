@@ -39,7 +39,7 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
 
-                                @foreach($menus as $menu)
+                                @foreach($menus as $key => $menu)
 
 
                                     @if($menu->pages->count() > 0)
@@ -76,7 +76,7 @@
 
                                             @else
 
-                                                <a href="#">{{ $menu->title1 }}</a>
+                                                <a href="/">{{ $menu->title1 }}</a>
                                             @endif
 
                                         </li>

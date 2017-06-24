@@ -46,22 +46,6 @@
 
 @section('extra-js')
 
-    <script>
-        function imagePreview(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#uploadForm + img').remove();
-                    $('#uploadForm').after('<img src="' + e.target.result + '" class="image" width="200" height="150" />');
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        $('#file').change(function () {
-            imagePreview(this);
-        })
-    </script>
-
     @include('admin.partials.ckeditor_script')
 
 

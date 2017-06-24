@@ -57,7 +57,11 @@
 </div>
 
 <div class="form-group" >
-    {!! Form::label('description', 'Long Description' ) !!}
+    {!! Form::label('short_desc', 'Short Description' ) !!}
+    {!! Form::textarea('short_desc', null, [ 'rows'=>'10', 'placeholder' => 'Short Description' , 'class' => 'form-control' ]) !!}
+</div>
 
+<div class="form-group" >
+    {!! Form::label('description', 'Long Description' ) !!}
     {!! Form::textarea('description', null, [ 'id' => 'description', 'rows'=>'15', 'placeholder' => 'Long Description' , 'class' => 'form-control' ]) !!}
 </div>

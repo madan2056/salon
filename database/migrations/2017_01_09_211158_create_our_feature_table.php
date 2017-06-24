@@ -16,8 +16,9 @@ class CreateOurFeatureTable extends Migration
         Schema::create('our_feature', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('description');
-            $table->text('image');
+            $table->string('short_desc')->nullable();
+            $table->string('description')->nullable();
+            $table->text('image')->nullable();
             $table->boolean('status')->index()->default(0);
             $table->unsignedInteger('rank')->nullable();
             $table->timestamps();
