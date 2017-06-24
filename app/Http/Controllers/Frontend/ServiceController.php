@@ -43,12 +43,7 @@ class ServiceController extends FrontendBaseController
         return view(parent::loadDefaultVars('frontend.service.index', $this->getServiceListMetaData($data)), compact('data'));
     }
 
-  /*  public function serviceDetail($url){
-
-        $data['row'] = AppHelper::getPageDataFromSlug('OurService', $url);
-
-        return view(parent::loadDefaultVars('frontend.service.detail',$this->getServiceDetailMetaData($data)), compact('data'));
-    }
+  /*
 
     protected function getServiceDetailMetaData(array $data)
     {

@@ -8,12 +8,12 @@
                 <ul class="clearfix">
                     @foreach($data['features'] as $feature)
                         <li>
-                            <a href="{{ route('service_detail', $feature->slug) }}" class="picBox">
+                            <a href="{{ route('service_detail', $feature->id) }}" class="picBox">
                                 <img src="{{ asset('images/our_feature/'.$feature->image) }}" alt="Quality Services"/>
                             </a>
-                            <h3><a href="{{ route('service_detail', $feature->slug) }}">{{ $feature->title }}</a></h3>
+                            <h3><a href="{{ route('service_detail', $feature->id) }}">{{ $feature->title }}</a></h3>
                             {!! $feature->short_desc !!}
-                            <a href="{{ route('service_detail', $feature->slug) }}">More</a>
+                            <a href="{{ route('service_detail', ['url' => $feature->id]) }}">More</a>
                         </li>
                         @endforeach
 
