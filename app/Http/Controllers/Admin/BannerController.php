@@ -61,6 +61,7 @@ class BannerController extends AdminBaseController
             'image'      => $this->__checkFileAndUpload($request),
             'status'     => $request->get('status'),
             'rank'       => $request->get('rank'),
+            'link'       => $request->get('link'),
         ]);
         AppHelper::flash('success', 'Record has been created Successfully');
         return redirect()->route($this->scope.'.index')->withErrors(['message' => 'Record deleted successfully.']);
@@ -91,6 +92,7 @@ class BannerController extends AdminBaseController
             'image'      => $this->__checkFileAndUpload($request),
             'status'     => $request->get('status'),
             'rank'       => $request->get('rank'),
+            'link'       => $request->get('link'),
         ]);
         AppHelper::flash('success', 'Record has updated successfully');
         return redirect()->route($this->scope.'.index');

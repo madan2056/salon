@@ -51,3 +51,9 @@
         @endif
     @endif
 </div>
+<div class="row">
+    <div class="col-lg-8">
+        {!! Form::label('link', 'Link' ) !!}
+        {!! Form::url('link', null, [ 'id' => 'link', 'placeholder' => 'Link' , 'class' => 'form-control' ]) !!}
+    </div>
+</div>

@@ -63,8 +63,11 @@ class PageController extends AdminBaseController
 
         $data = [];
         $data['page_type'] = array(
-            'page' => 'Page', 'product_list' => 'Product', 'service'=> 'Service',
-            'request_quotation' => 'Request Quotation', 'inquiry_form' => 'Inquiry Form',
+            'page' => 'Page',
+            'product_list' => 'Product',
+            'service'=> 'Service',
+            'request_quotation' => 'Request Quotation',
+            'inquiry_form' => 'Inquiry Form',
             'home' => 'Home'
         );
         $response = [];

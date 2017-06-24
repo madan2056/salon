@@ -15,7 +15,7 @@ class Banner extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'title', 'image', 'status','rank'
+        'id', 'title', 'image', 'status','rank', 'link'
     ];
 
 }

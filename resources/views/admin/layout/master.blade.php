@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CreativeLinkNepal | CMS</title>
+    <title>Salon & Day Spa | CMS</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -64,7 +64,7 @@
     </div>
 
     <footer class="main-footer">
-        <strong>Copyright &copy; {{ date('Y') }} <a href="{{ route('home') }}" target="_blank">Creative Link Pvt.Ltd</a>.</strong>
+        <strong>Copyright &copy; {{ date('Y') }} <a href="{{ route('home') }}" target="_blank">Salon & Day Spa</a>.</strong>
         All
         rights reserved.
     </footer>

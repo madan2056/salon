@@ -29,7 +29,8 @@ class HomeController extends FrontendBaseController
       $data['services']  = OurService::where('status', 1)->get();
       $data['about_page'] = Page::find(7);
       $data['why_page'] = Page::find(8);
-      $data['banner']= Banner::where('status',true)->orderBy('rank','ASC')->get();
+      $data['banner']= Banner::where('status', 1)->orderBy('rank','ASC')->get();
+
 //      $data['gallery']=
 
      return view(parent::loadDefaultVars('frontend.home.index'), compact('data'));

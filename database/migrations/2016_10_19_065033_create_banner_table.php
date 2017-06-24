@@ -17,6 +17,7 @@ class CreateBannerTable extends Migration
             $table->increments('id');
             $table->string('title', 250)->nullable();
             $table->text('image')->nullable();
+            $table->text('link')->nullable();
             $table->boolean('status')->index()->default(0);
             $table->unsignedInteger('rank')->nullable();
             $table->timestamps();
