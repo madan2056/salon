@@ -26,26 +26,20 @@
                             <div class="row">
                                 <ul class="clearfix">
                                     @if(isset($data['happy_customer']))
-                                    @foreach($data['happy_customer'] as $happy)
-                                    <li class="col-lg-6 col-xs-12">
-                                        <div class="videoBox">
-                                            <iframe width="100%" height="315" src="{{$happy->video_url}}" frameborder="0" allowfullscreen></iframe>
-                                        </div>
-                                    </li>
-                                    @endforeach
+                                        @foreach($data['happy_customer'] as $happy)
+                                        <li class="col-lg-6 col-xs-12">
+                                            <div class="videoBox">
+                                                <iframe width="100%" height="315"
+                                                        src="https://www.youtube.com/embed/{{ $happy->video_url }}"
+                                                        frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                        </li>
+                                        @endforeach
                                     @endif
                                 </ul>
                             </div>
                         </div>
-                        <div class="customPagination">
-                            <ul class="clearfix">
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li class="active"><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                            </ul>
-                        </div>
+                        {{ $data['happy_customer']->links('frontend.includes.custom_pagination') }}
                     </div>
                 </div>
 

@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\AppBaseController;
 use App\Model\Category;
+use App\Model\CustomerTestimonials;
 use App\Model\OurService;
 use App\Model\ProfileSetting;
 use App\Model\SiteConfig;
@@ -49,6 +50,8 @@ class FrontendBaseController extends Controller
                 $view->with('menus',      $this->menu);
                 $view->with('config',     ProfileSetting::first());
                 $view->with('footer_service', OurService::where('status', 1)->get());
+
+                $view->with('sidebar_video', CustomerTestimonials::where('type', 'happy_customer')->orderBy('id', 'DESC')->take(1)->first());
 
                /*
                 $view->with('services',   $this->service);
