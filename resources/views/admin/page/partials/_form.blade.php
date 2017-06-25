@@ -30,7 +30,25 @@
 </div>
 
 <div class="row" style="margin-bottom: 9px;">
-    <div class="col-lg-4">
+    <div class="col-lg-2">
+        {!! Form::label('show_in_menu', 'Show In Menu' ) !!}
+
+        <div class="control-group">
+            <div class="radio">
+                <label>
+                    {!! Form::radio('show_in_menu', 1, false, [ 'class' => 'ace' ]) !!}
+                    <span class="lbl"> Yes</span>
+                </label>
+
+                <label>
+                    {!! Form::radio('show_in_menu', 0, true, [ 'class' => 'ace' ]) !!}
+                    <span class="lbl"> No</span>
+                </label>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-2">
         {!! Form::label('status', 'Status' ) !!}
 
         <div class="control-group">

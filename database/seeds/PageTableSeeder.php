@@ -15,35 +15,25 @@ class PageTableSeeder extends Seeder
             'title1'    => 'Home',
             'page_type' => 'home',
             'status'    => 1,
+            'show_in_menu' => 1,
             'rank'      => 1,
         ]);
 
         DB::table('page')->insert([
-            'title1'    => 'Our Service',
-            'page_type' => 'our_service',
+            'title1'    => 'About Us',
+            'page_type' => 'about-us',
             'status'    => 1,
+            'show_in_menu' => 1,
             'rank'      => 2,
         ]);
 
         DB::table('page')->insert([
-            'title1'    => 'Product',
-            'page_type' => 'product_list',
+            'title1'    => 'What is and Why - COSMETIC TATTOO?',
+            'page_type' => 'what-is-and-why-cosmetic-tattoo',
             'status'    => 1,
-            'rank'      => 3,
+            'show_in_menu' => 0,
+            'rank'      => 25,
         ]);
 
-        DB::table('page')->insert([
-            'title1'    => 'Request Quotation',
-            'page_type' => 'request_quotation',
-            'status'    => 1,
-            'rank'      => 3,
-        ]);
-
-        DB::table('page')->insert([
-            'title1'    => 'Inqury Form',
-            'page_type' => 'inquiry_form',
-            'status'    => 1,
-            'rank'      => 3,
-        ]);
     }
 }

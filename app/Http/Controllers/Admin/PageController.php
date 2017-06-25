@@ -51,7 +51,9 @@ class PageController extends AdminBaseController
     protected function getData()
     {
 
-        $data = Page::select('id', 'title1', 'slug', 'image', 'description', 'page_type', 'status')->orderBy('id', 'asc')->get();
+        $data = Page::select('id', 'title1', 'slug', 'image', 'description', 'page_type', 'status', 'show_in_menu')
+            ->orderBy('id', 'asc')
+            ->get();
         return $data;
     }
 
@@ -89,6 +91,7 @@ class PageController extends AdminBaseController
             'page_type' => $request->get('page_type'),
             'image' => $this->__checkFileAndUpload($request),
             'status' => $request->get('status'),
+            'show_in_menu' => $request->get('show_in_menu'),
             'rank' => $last_rank + 1,
         ]);
 
@@ -133,6 +136,7 @@ class PageController extends AdminBaseController
             'page_type' => $request->get('page_type'),
             'image' => $this->__checkFileAndUpload($request),
             'status' => $request->get('status'),
+            'show_in_menu' => $request->get('show_in_menu'),
         ]);
         AppHelper::flash('success', 'Record has been updated Successfully');
         return redirect()->route($this->scope . '.index');

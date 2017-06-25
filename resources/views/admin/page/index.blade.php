@@ -71,14 +71,14 @@
                                 <a href="{{ route($scope.'.edit',['id' => $data->id]) }}" class="pull-left" title="Click To Edit">
                                     <button class="btn btn-xs btn-info"><i class="glyphicon glyphicon-pencil"></i></button>    &nbsp;&nbsp;
                                 </a>
-                                @if($data->id == 7 || $data->id == 8)
+                                @if($data->slug == 'home' || $data->slug == 'about-us' || $data->slug == 'what-is-and-why-cosmetic-tattoo')
                                     @else
                                     <a>
                                         {{ Form::open(array('url' => 'admin/'.$scope.'/' . $data->id, 'id'=>'delete-current-list')) }}{{ Form::hidden('_method', 'DELETE') }}
                                         <button title="Click To Delete" type="submit" class="btn btn-xs btn-danger bootbox-confirm"><i class="glyphicon glyphicon-trash"></i></button>
                                         {{ Form::close() }}
                                     </a>
-                               @endif
+                                @endif
                             </td>
                         </tr>
                     @endforeach

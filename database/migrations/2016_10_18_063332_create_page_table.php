@@ -22,6 +22,7 @@ class CreatePageTable extends Migration
             $table->longText('description')->nullable();
             $table->string('page_type', 255)->index()->nullable();
             $table->boolean('status')->default(0)->index();
+            $table->boolean('show_in_menu')->default(0)->index();
             $table->unsignedInteger('rank')->nullable();
             $table->timestamps();
         });
