@@ -35,11 +35,6 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('facebook_link', 'Facebook Link' ) !!}
-                        {!! Form::text('facebook_link', null, [ 'id' => 'facebook_link', 'placeholder' => 'Facebook Link' , 'class' => 'form-control' ]) !!}
-                    </div>
-
-                    <div class="form-group">
                         {!! Form::label('address', 'Address' ) !!}
                         {!! Form::text('address', null, [ 'id' => 'address', 'placeholder' => 'Address' , 'class' => 'form-control' ]) !!}
                     </div>
@@ -55,6 +50,32 @@
                             @endif
                         @endif
                     </div>
+
+                    <div class="form-group">
+                        {!! Form::label('facebook_link', 'Facebook Link' ) !!}
+                        {!! Form::text('facebook_link', null, [ 'id' => 'facebook_link', 'placeholder' => 'Facebook Link' , 'class' => 'form-control' ]) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('google_plus', 'Google Link' ) !!}
+                        {!! Form::text('google_plus', null, [ 'id' => 'google_plus', 'placeholder' => 'Google Link' , 'class' => 'form-control' ]) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('instagram', 'Instagram Link' ) !!}
+                        {!! Form::text('instagram', null, [ 'id' => 'instagram', 'placeholder' => 'Instagram Link' , 'class' => 'form-control' ]) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('youtube', 'Youtube Link' ) !!}
+                        {!! Form::text('youtube', null, [ 'id' => 'youtube', 'placeholder' => 'Youtube Link' , 'class' => 'form-control' ]) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('google_map', 'Google Map Code' ) !!}
+                        {!! Form::textarea('google_map', null, [ 'id' => 'google_map', 'placeholder' => 'Google Map Code' , 'class' => 'form-control' ]) !!}
+                    </div>
+
                 </div>
 
                 <div class="box-footer">

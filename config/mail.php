@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'info@creativelinknepal.com',
-        'name' => 'Creative Link Nepal',
+        'address' => 'info@salonanspa.com',
+        'name' => 'Salon And Day Spa',
     ],
 
     /*

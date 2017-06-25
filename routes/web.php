@@ -93,5 +93,9 @@ Route::post('/inquiry-form/store',      [ 'as' => 'inquiry-form.store',         
 
 //Happy Customers
 Route::get('/happy-customers',          ['as'=>'happy_customers',                   'uses'=>'Frontend\HappyCustomerTestimonialsController@happyCustomer']);
+
 //Testimonails
 Route::get('/testimonials',          ['as'=>'testimonials',                         'uses'=>'Frontend\HappyCustomerTestimonialsController@testimonials']);
+
+Route::get('/contact-us',            ['as'=>'contact-us',                           'uses'=>'Frontend\FormController@contactUs']);
+Route::post('/contact-us',           ['as'=>'contact-us.post',                      'uses'=>'Frontend\FormController@contactSendEmail']);
