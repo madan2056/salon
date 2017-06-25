@@ -11,6 +11,8 @@ class HappyCustomerTestimonialsController extends FrontendBaseController
     {
         $data             = [];
         $data['happy_customer'] =$this->getTestimonialsOrCustomers('happy_customer', 2);
+        $this->active_page = 'home';
+
         return view(parent::loadDefaultVars('frontend.customers.happy_customers'), compact('data'));
     }
 
@@ -18,6 +20,8 @@ class HappyCustomerTestimonialsController extends FrontendBaseController
     {
         $data                 = [];
         $data['testimonials'] = $this->getTestimonialsOrCustomers('testimonials', 2);
+        $this->active_page = 'home';
+
         return view(parent::loadDefaultVars('frontend.customers.testimonials'), compact('data'));
     }
 
