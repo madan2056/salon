@@ -19,6 +19,7 @@ class CreatePageTable extends Migration
             $table->string('title1', 100)->nullable();
             $table->string('slug', 100)->index()->nullable();
             $table->text('image')->nullable();
+            $table->longText('short_description')->nullable();
             $table->longText('description')->nullable();
             $table->string('page_type', 255)->index()->nullable();
             $table->boolean('status')->default(0)->index();

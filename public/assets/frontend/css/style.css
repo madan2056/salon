@@ -251,7 +251,7 @@ a:hover, a:focus {
 /* --- Why Us --- */
 .whyUs {
 	padding: 100px 0px 50px 0px;
-	background: url(../images/spa-flat-icon.png) no-repeat bottom left;
+	background: url(../../../images/spa-flat-icon.png) no-repeat bottom left;
 	text-align: center;
 }
 .whyUs h2 {
@@ -307,7 +307,7 @@ a:hover, a:focus {
 }
 /* --- About Us Home --- */
 .aboutUsHome {
-	background: url(../images/about-home.jpg) fixed;
+	background: url(../../../images/about-home.jpg) fixed;
 	color: #fff;
 }
 .aboutUsHome .overlayBox {
@@ -435,7 +435,7 @@ a:hover, a:focus {
 }
 /* --- Info Box Home Page --- */
 .infoBoxHome {
-	background: url(../images/infoBoxBg.jpg) fixed;
+	background: url(../../../images/infoBoxBg.jpg) fixed;
 	color: #fff;
 }
 .infoBoxHome .overlayBox {
@@ -805,7 +805,7 @@ ul.svcBot li {
 }
 /* --- Title Inner Pages --- */
 .titleArea {
-	background: url(../images/titleBg.jpg) fixed;
+	background: url(../../../images/titleBg.jpg) fixed;
 	color: #fff;
 	margin-bottom: 50px;
 }

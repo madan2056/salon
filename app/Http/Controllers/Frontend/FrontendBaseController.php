@@ -25,7 +25,11 @@ class FrontendBaseController extends Controller
     public function __construct()
     {
 
-        $this->menu     = Page::select('id', 'slug','title1','page_type')->where('status', 1)->orderBy('rank', 'ASC')->get();
+        $this->menu     = Page::select('id', 'slug','title1','page_type')
+            ->where('show_in_menu', 1)
+            ->where('status', 1)
+            ->orderBy('rank', 'ASC')
+            ->get();
 
        /*
        $this->service  = OurService::select('slug','title')->where('status', 1)->orderBy('id', 'DESC')->take(5)->get();

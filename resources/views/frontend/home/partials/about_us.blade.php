@@ -7,8 +7,8 @@
                         <img src="{{  asset('images/page/'.$data['about_page']->image)  }}" alt="{{  $data['about_page']->title1 }}" />
                     </div>
                     <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12">
-                        <h1>{{  $data['about_page']->title1 }}</h1>
-                        <p>{!! $data['about_page']->description !!}</p>
+                        <h1>About Salon and Day Spa</h1>
+                        <p>{!!$data['about_page']->short_description !!}</p>
                         <p class="more"><a href="{{ route('page', $data['about_page']->slug) }}">Continue Reading
                                 <i class="fa fa-arrow-right"></i></a></p>
                     </div>
