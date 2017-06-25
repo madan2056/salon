@@ -27,7 +27,7 @@
             </li>
             <li {!! Request::is('admin/sample_work*')?'class="active"':'' !!}>
                 <a href="{{ route('sample_work.index') }}">
-                    <i class="fa fa-briefcase"></i>Sample Work
+                    <i class="fa fa-briefcase"></i>Gallery
                 </a>
             </li>
             <li {!! Request::is('admin/banner*')?'class="active"':'' !!}>
@@ -40,7 +40,8 @@
                     <i class="fa fa-file"></i>Page
                 </a>
             </li>
-            <li {!! Request::is('admin/inquiry_form*')?'class="active"':'' !!}>
+
+           {{-- <li {!! Request::is('admin/inquiry_form*')?'class="active"':'' !!}>
                 <a href="{{ route('inquiry_form.index') }}">
                     <i class="fa fa-image"></i>Inqury Form
                 </a>
@@ -49,7 +50,8 @@
                 <a href="{{ route('request_quotation.index') }}">
                     <i class="fa fa-image"></i>Request Quotation
                 </a>
-            </li>
+            </li>--}}
+
             <li {!! Request::is('admin/customer_testimonials*')?'class="active"':'' !!}>
                 <a href="{{ route('customer_testimonials.index') }}">
                     <i class="fa fa-user"></i>Customer And Testimonials

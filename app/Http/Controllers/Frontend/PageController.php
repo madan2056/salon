@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Requests;
 use App\Model\Album;
 use App\Model\Gallery;
+use App\Model\SampleWork;
 use AppHelper;
 use App\Http\Requests\ContactUsValidateRequest;
 
@@ -31,13 +32,12 @@ class PageController extends FrontendBaseController
         return parent::getMetaData($tmp);
     }
 
-    public function appointment()
-    {
-        return view(parent::loadDefaultVars($this->view_path.'appointment'), compact('data'));
-    }
-
     public function gallery()
     {
+        $data['gallery'] = SampleWork::select('title', 'image')
+            ->where('status', 1)
+            ->orderBy('rank')
+            ->paginate(12);
         return view(parent::loadDefaultVars($this->view_path.'gallery'), compact('data'));
     }
 

@@ -16,7 +16,6 @@ $this->get(config('broadway.route.admin-panel'), [ 'as' => 'login', 'uses' => 'A
 $this->post(config('broadway.route.admin-panel'), 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout');
 
-Route::get('/services',        [ 'as' => 'services',         'uses' => 'Frontend\ServiceController@index']);
 Route::get('/services/{slug}', [ 'as' => 'service-detail',  'uses' => 'Frontend\ServiceController@detail']);
 
 //Admin Routes
