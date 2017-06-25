@@ -48,7 +48,7 @@
 
                 {!! Form::label('image', 'Image') !!}
 
-                {!! Form::file('customer_image', ['id' => 'file', 'class' => 'form-control']) !!}
+                {!! Form::file('image', ['id' => 'file', 'class' => 'form-control']) !!}
                 <i class="help-block"><strong>NOTE:</strong> Best image dimension is 1200 px * 600 px</i>
         </div>
 
