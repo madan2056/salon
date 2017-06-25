@@ -67,6 +67,11 @@
                     <i class="fa fa-gears"></i>Site Config
                 </a>
             </li>
+            <li {!! Request::is('admin/appointment-layout*')?'class="active"':'' !!}>
+                <a href="{{ route('appointment-layout.index') }}">
+                    <i class="fa fa-image"></i>Service Appointment Layout
+                </a>
+            </li>
             <li {!! Request::is('admin/profile_setting*')?'class="active"':'' !!}>
                 <a href="{{ route('profile_setting.edit') }}">
                     <i class="fa fa-gears"></i>Profile

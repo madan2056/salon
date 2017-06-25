@@ -19,4 +19,10 @@ class ServiceAppointmentLayout extends Authenticatable
        'id', 'title','rank','status'
     ];
 
+    public function services()
+    {
+        return $this->belongsToMany('App\Model\OurService',
+            'service_service_appointment_layout', 'service_appointment_layout_id', 'service_id');
+    }
+
 }

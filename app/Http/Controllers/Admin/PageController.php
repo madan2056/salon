@@ -168,7 +168,7 @@ class PageController extends AdminBaseController
 
     public function orderingPage()
     {
-        $page = Page::where('status', 1)->orderBy('rank', 'ASC')->get();;
+        $page = Page::where('status', 1)->where('parent_id', 0)->orderBy('rank', 'ASC')->get();;
 
         return view($this->loadDefaultVars($this->view_path . '.order_page'), compact('page'));
     }

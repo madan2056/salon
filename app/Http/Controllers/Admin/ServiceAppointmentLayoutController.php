@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\OurService;
 use App\Model\ProfileSetting;
+use App\Model\ServiceAppointmentLayout;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,6 +19,7 @@ class ServiceAppointmentLayoutController extends AdminBaseController
     protected $view_path = 'admin.service-appointment-layout';
     protected $scope = 'service-appointment-layout';
     protected $title = 'Service Appointment Layout';
+    protected $route = 'appointment-layout';
 
     /**
      * Used by Update Action to store old image
@@ -35,34 +38,53 @@ class ServiceAppointmentLayoutController extends AdminBaseController
      */
     protected $file_input_field = 'logo';
 
-    public function edit()
+    protected function getData()
     {
-        $config = ProfileSetting::first();
 
-        return view(parent::loadDefaultVars($this->view_path.'.edit'), compact('config'));
+        $data = ServiceAppointmentLayout::orderBy('id', 'asc')->get();
+        return $data;
     }
 
-   public function store(Request $request, $id)
+    public function create()
     {
-            $ProfileSetting= ProfileSetting:: findOrFail($id);
+        $data = [];
+        $data['services'] = OurService::where('status', 1)->pluck('title', 'id');
 
-        /*    $this->existing_image = $ProfileSetting->logo;*/
+        return view(parent::loadDefaultVars($this->view_path.'.create'), compact('data'));
+    }
 
-            /*$ProfileSetting->update([
-                'company_name'  => $request->get('company_name'),
-                'email'         => $request->get('email'),
-                'address'       => $request->get('address'),
-                'facebook_link' => $request->get('facebook_link'),
-                'logo'          => $this->__checkFileAndUpload($request),
-            ]);*/
 
-            if($ProfileSetting){
-                AppHelper::flash('success', 'Record has been updated Successfully');
-                return redirect()->route('service-appointment-layout.edit');
-            }else{
-                AppHelper::flash('danger', 'Record could not be created');
-                return redirect()->route('service-appointment-layout.edit');
-            }
+
+   public function store(Request $request)
+    {
+       $data = ServiceAppointmentLayout::create([
+            'title'  => $request->get('title'),
+        ]);
+
+        $data->services()->sync($request->has('service_name')?$request->get('service_name'):[]);
+
+        AppHelper::flash('success', 'Record has been updated Successfully');
+        return redirect()->route('appointment-layout.index');
+
+    }
+
+    public function edit($id)
+    {
+        $data = [];
+        $data['services'] = OurService::where('status', 1)->pluck('title', 'id');
+        $data['service_appointment'] = ServiceAppointmentLayout::find($id);
+
+        return view(parent::loadDefaultVars($this->view_path.'.edit'), compact('data'));
+    }
+
+    public function destroy($id)
+    {
+
+        $result = ServiceAppointmentLayout::destroy($id);
+
+
+        AppHelper::flash('success', 'Record has deleted successfully');
+        return redirect()->route($this->scope . '.index');
     }
 
 }

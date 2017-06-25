@@ -25,9 +25,9 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth'], function () {
     Route::get('profile_setting/edit',         [ 'as'=>'profile_setting.edit',    'uses' => 'Admin\ProfileSettingController@edit']);
     Route::post('profile_setting/update/{id}', [ 'as'=>'profile_setting.update',  'uses' => 'Admin\ProfileSettingController@store']);
 
-    Route::get('appointment-layout/edit',         [ 'as'=>'appointment.edit',    'uses' => 'Admin\ServiceAppointmentLayoutController@edit']);
-    Route::post('appointment-layout/update/{id}', [ 'as'=>'appointment.update',  'uses' => 'Admin\ServiceAppointmentLayoutController@store']);
-
+    Route::get('appointment-layout/index',         [ 'as'=>'appointment-layout.index',    'uses' => 'Admin\ServiceAppointmentLayoutController@index']);
+    /*Route::post('appointment-layout/update',     [ 'as'=>'appointment-layout.update',  'uses' => 'Admin\ServiceAppointmentLayoutController@store']);*/
+    Route::resource('appointment-layout',                 'Admin\ServiceAppointmentLayoutController');
 
     //inquiry form route route
     Route::get('inquiry_form',                 [ 'as'=>'inquiry_form.index',      'uses' => 'Admin\InquiryFormController@index']);
