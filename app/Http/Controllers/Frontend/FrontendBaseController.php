@@ -49,6 +49,7 @@ class FrontendBaseController extends Controller
                 $view->with('menus',      $this->menu);
                 $view->with('config',     ProfileSetting::first());
                 $view->with('footer_service', OurService::where('status', 1)->get());
+
                /*
                 $view->with('services',   $this->service);
                 $view->with('categories', $this->category);

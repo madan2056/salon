@@ -58,8 +58,12 @@ class ProfileSettingController extends AdminBaseController
                 'company_name'  => $request->get('company_name'),
                 'email'         => $request->get('email'),
                 'address'       => $request->get('address'),
-                'facebook_link' => $request->get('facebook_link'),
                 'logo'          => $this->__checkFileAndUpload($request),
+                'facebook_link' => $request->get('facebook_link'),
+                'google_plus' => $request->get('google_plus'),
+                'instagram' => $request->get('instagram'),
+                'youtube' => $request->get('youtube'),
+                'google_map' => $request->get('google_map'),
             ]);
 
             if($ProfileSetting){

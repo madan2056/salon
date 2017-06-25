@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Requests\Front\FormValidation;
 use App\Http\Requests\InquiryFormValidateRequest;
 use App\Http\Requests\RequestQuotationValidateRequest;
+use App\Mail\ContactFormMail;
 use App\Model\ContactForm;
 use App\Model\OurService;
 use App\Model\ProfileSetting;
@@ -98,7 +100,6 @@ class FormController extends FrontendBaseController
         return redirect()->route('inquiry_form');
     }
 
-
     protected function getDetailPageMetaData(array $data)
     {
         $tmp = [];
@@ -109,4 +110,24 @@ class FormController extends FrontendBaseController
         return parent::getMetaData($tmp);
     }
 
+
+    public function contactUs()
+    {
+        $data = [];
+        $this->page = 'contact-us';
+        return view(parent::loadDefaultVars('frontend.home.contact'), compact('data'));
+    }
+
+    public function contactSendEmail(FormValidation $request)
+    {
+        $profile = ProfileSetting::first();
+        Mail::to($profile->email)
+            ->send(new ContactFormMail($request));
+
+        $message  = 'Thank you, we have received your message.';
+        $message .= '<br> If you did not get the email, please, check your spam folder.';
+
+        $request->session()->flash('curd_message', $message);
+        return redirect()->route('contact-us');
+    }
 }
