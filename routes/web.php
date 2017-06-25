@@ -10,6 +10,12 @@
 |
 */
 
+Route::get('appointment', [ 'as' => 'appointment', 'uses' => 'Frontend\PageController@appointment']);
+Route::get('gallery', [ 'as' => 'gallery', 'uses' => 'Frontend\PageController@gallery']);
+Route::get('contact-us', [ 'as' => 'contact-us', 'uses' => 'Frontend\PageController@contactUs']);
+
+/*---------------Sagar Routes-----------------*/
+
 $this->get(config('broadway.route.admin-panel'), [ 'as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
 $this->post(config('broadway.route.admin-panel'), 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout');
