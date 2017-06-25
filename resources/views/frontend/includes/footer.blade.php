@@ -19,7 +19,7 @@
                             @if(isset($config->address))
                                 <li>{{ $config->address }}</li>
                             @endif
-                            <li>202-374-8366</li>
+                            <li>{{ $config->phone }}</li>
                             @if(isset($config->email))
                                 <li>{{ $config->email }}</li>
                             @endif
@@ -47,11 +47,18 @@
                         <h2>About Us</h2>
                         <p>Salon and Day Spa justifies the essence of its name. Conveniently located in the Portsmouth Rd, in Manassas, Virginia, Salon and Day Spa has been fulfilling its purpose of providing best beauty service at best price. The customers’ satisfaction has always been our utmost priority and we are proud to state that we have always maintained our motto of service since establishment. Though established and operated for two years, Salon and Day Spa has the expertise of the certified beauty experts with more than 10 years’ experience in related field. <a href="aboutus.php">Read More</a></p>
                         <ul>
-                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://www.yelp.com/biz/salon-and-day-spa-manassas" target="_blank"><i class="fa fa-yelp"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            @if ($config->facebook_link)
+                                <li class="fb"><a href="{{ $config->facebook_link }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            @endif
+                            @if ($config->google_plus)
+                                <li class="gp"><a href="{{ $config->google_plus }}" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            @endif
+                            @if ($config->instagram)
+                                <li class="in"><a href="{{ $config->instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            @endif
+                            @if ($config->youtube)
+                                <li class="yt"><a href="{{ $config->youtube }}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

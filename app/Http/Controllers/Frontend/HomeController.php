@@ -31,9 +31,11 @@ class HomeController extends FrontendBaseController
       $data['about_page'] = Page::where('slug', 'about-us')->first();
       $data['why_page'] = Page::where('slug', 'what-is-and-why-cosmetic-tattoo')->first();
       $data['banner']= Banner::where('status', 1)->orderBy('rank','ASC')->get();
-
-
-//      $data['gallery']=
+      $data['gallery'] = SampleWork::select('title', 'image')
+          ->where('status', 1)
+          ->orderBy('rank')
+          ->limit(6)
+          ->get();
 
      return view(parent::loadDefaultVars('frontend.home.index'), compact('data'));
 

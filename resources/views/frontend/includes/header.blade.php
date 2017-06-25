@@ -12,11 +12,18 @@
                     @endif
                 </ul>
                 <ul class="socialTop clearfix">
-                    <li class="fb"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                    <li class="ye"><a href="https://www.yelp.com/biz/salon-and-day-spa-manassas" target="_blank"><i class="fa fa-yelp"></i></a></li>
-                    <li class="gp"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="in"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                    <li class="yt"><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                    @if ($config->facebook_link)
+                        <li class="fb"><a href="{{ $config->facebook_link }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    @endif
+                    @if ($config->google_plus)
+                        <li class="gp"><a href="{{ $config->google_plus }}" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                    @endif
+                    @if ($config->instagram)
+                        <li class="in"><a href="{{ $config->instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    @endif
+                    @if ($config->youtube)
+                        <li class="yt"><a href="{{ $config->youtube }}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                    @endif
                 </ul>
             </div>
         </div>
