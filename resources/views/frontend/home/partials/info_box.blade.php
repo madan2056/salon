@@ -5,6 +5,7 @@
                 <div class="quickContactHome">
                     <h2>Quick Contact</h2>
                     <form id="contact-form" method="POST" action="{{ route('contact-us.post') }}">
+                        {!! csrf_field() !!}
                         <div class="row">
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12 clearfix">
                 <ul class="contactlTop clearfix">
-                    <li>Call Us: 202-374-8366</li>
+                    <li>Call Us: {{ $config->phone }}</li>
                     @if(isset($config->email))
                     <li>Email Us: {{ $config->email }}</li>
                     @endif

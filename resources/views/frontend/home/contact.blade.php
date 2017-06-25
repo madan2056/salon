@@ -77,8 +77,8 @@
                                     <h2>Contact Us</h2>
                                     <ul>
                                         <li>{!! $config->address !!}</li>
-                                        <li>202-374-8366</li>
-                                        <li>info@salonanspa.com, gomanepal1@yahoo.com</li>
+                                        <li>{{ $config->phone }}</li>
+                                        <li>{{ $config->email }}</li>
                                     </ul>
                                 </div>
                             </div>
