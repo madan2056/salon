@@ -7,7 +7,7 @@
                     <h2>{{ $data['why_page']->title1 }}</h2>
                     <p>
                         <img src="{{ asset('images/page/'. $data['why_page']->image) }}" alt="{{ $data['why_page']->title1 }}" />
-                        {!! $data['why_page']->description !!}
+                        {!! $data['why_page']->short_description !!}
                      </p>
                 </div>
             </div>
