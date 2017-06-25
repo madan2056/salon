@@ -39,20 +39,34 @@
                     </form>
                 </div>
             </div>
+
+            @if(isset($data['testimonial']))
             <div class="col-lg-5 col-lg-offset-1 col-md-6 col-xs-12">
                 <div class="testimonialsHome">
                     <h2>What our customers say about us?</h2>
                     <div class="userHome clearfix">
-                        <div class="userPic"><img src="Testimonials/user-demo.jpg" alt="User Name" /></div>
+                        <div class="userPic">
+
+                            @if( $data['testimonial']->customer_image)
+                                <img src="{{ asset('images/customer_testimonials/'. $data['testimonial']->customer_image) }}"
+                                     alt="{{$data['testimonial']->customer_name}}" />
+                            @else
+                                <img src="{{ asset('images/user-demo.jpg') }}"
+                                     alt="{{$data['testimonial']->customer_name}}" />
+                            @endif
+
+                        </div>
+
                         <div class="userInfo">
-                            <h3>Ms. Blue</h3>
-                            <h4>Washington, DC</h4>
+                            <h3>{{ $data['testimonial']->customer_name }}</h3>
+                            <h4>{{ $data['testimonial']->customer_address }}</h4>
                         </div>
                     </div>
-                    <p>I have done eyebrow threading here, and its pretty good, I hope this isn't one of those spots that closes after some time, as it's convenient having a eyebrow person close, my usual spot is in Fairfax. so I will be back, great prices as well.</p>
+                    <p>{{ $data['testimonial']->customer_comment}}</p>
                     <p><a href="{{route('testimonials')}}" class="btn"><i class="fa fa-send"></i> View All</a></p>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </div>
