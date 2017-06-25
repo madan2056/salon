@@ -71,15 +71,14 @@
                         <div class="contactBottomBox">
                             <div class="box">
                                 <div class="mapBox">
-                                    {!!  !!}
+                                    {!! $config->google_map !!}
                                 </div>
                                 <div class="contactArea">
                                     <h2>Contact Us</h2>
                                     <ul>
-                                        <li>10350 Portsmouth Rd, Manassas,
-                                            VA 20109</li>
-                                        <li>202-374-8366</li>
-                                        <li>info@salonanspa.com, gomanepal1@yahoo.com</li>
+                                        <li>{!! $config->address !!}</li>
+                                        <li>{{ $config->phone }}</li>
+                                        <li>{{ $config->email }}</li>
                                     </ul>
                                 </div>
                             </div>

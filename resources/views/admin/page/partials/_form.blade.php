@@ -95,7 +95,7 @@
 <div class="form-group" >
     {!! Form::label('short_description', 'Short Description' ) !!}
 
-    {!! Form::textarea('short_description', null, [ 'id' => 'short_description', 'rows'=>'8', 'placeholder' => 'Short Description' , 'class' => 'form-control' ]) !!}
+    {!! Form::textarea('short_description', null, [ 'id' => 'short_description', 'rows'=>'8', 'placeholder' => 'Short Description' , 'class' => 'form-control text-editor' ]) !!}
 </div>
 
 <div class="form-group" >
