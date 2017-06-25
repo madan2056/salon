@@ -23,3 +23,7 @@
 @include('frontend.home.partials.contact_bottom')
 
 @endsection
+
+@section('extra-js')
+
+    @endsection

@@ -15,7 +15,7 @@ class OurService extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'id', 'title','slug','image', 'description', 'status','rank'
+       'id', 'title','slug','image', 'short_description', 'description', 'status','rank'
 
     ];
 

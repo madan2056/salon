@@ -72,6 +72,7 @@ class OurServiceController extends AdminBaseController
             $service = OurService::create([
                 'title'               => $request->get('title'),
                 'slug'                => str_slug($request->get('title')),
+                'short_description'   => $request->get('short_description'),
                 'description'         => $request->get('description'),
                 'image'               => $this->__checkFileAndUpload($request),
                 'status'              => $request->get('status'),
@@ -142,6 +143,7 @@ class OurServiceController extends AdminBaseController
         $data->update([
             'title'              => $request->get('title'),
             'slug'                => str_slug($request->get('title')),
+            'short_description'   => $request->get('short_description'),
             'description'         => $request->get('description'),
             'image'               =>  $this->__checkFileAndUpload($request),
             'status'              => $request->get('status'),

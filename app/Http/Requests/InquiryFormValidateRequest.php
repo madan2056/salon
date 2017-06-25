@@ -29,7 +29,6 @@ class InquiryFormValidateRequest extends FormRequest
             'email'         => 'email|required',
             'phone_number'  => 'required',
             'address'       => 'required',
-
             'detail'        => 'required',
         ];
     }

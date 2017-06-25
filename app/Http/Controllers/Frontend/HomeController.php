@@ -26,7 +26,7 @@ class HomeController extends FrontendBaseController
         $data['banner']      = Banner::where('status', 1)->orderBy('rank', 'asc')->take(10)->get();*/
 
       $data     = [];
-      $data['services']  = OurService::where('status', 1)->get();
+      $data['services']  = OurService::where('status', 1)->limit(6)->get();
       $data['features']  = OurFeature::where('status', 1)->get();
       $data['about_page'] = Page::where('slug', 'about-us')->first();
       $data['why_page'] = Page::where('slug', 'what-is-and-why-cosmetic-tattoo')->first();

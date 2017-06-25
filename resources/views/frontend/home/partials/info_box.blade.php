@@ -4,35 +4,35 @@
             <div class="col-md-6 col-xs-12">
                 <div class="quickContactHome">
                     <h2>Quick Contact</h2>
-                    <form>
+                    <form id="contact-form" method="POST" action="{{ route('inquiry-form.store') }}">
                         <div class="row">
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Enter Your Full Name" />
+                                    <input type="text" name="full_name" id="full_name" class="form-control" placeholder="Enter Your Full Name" required />
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Enter Your Email ID" />
+                                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email ID" required />
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Enter Your Contact No." />
+                                    <input type="text" name="phone_number" class="form-control" placeholder="Enter Your Contact No." required />
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Enter Your Address" />
+                                    <input type="text" name="address" class="form-control" placeholder="Enter Your Address" required />
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Enter Your Message Here"></textarea>
+                                    <textarea class="form-control" name="detail" placeholder="Enter Your Message Here" required></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
-                                <button type="submit" class="btn"><i class="fa fa-send"></i> Submit Now</button>
+                                <button type="submit" class="btn" id="contact-form-submit-btn"><i class="fa fa-send"></i> Submit Now</button>
                             </div>
                         </div>
                     </form>
