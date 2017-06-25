@@ -21,7 +21,8 @@ class PageTableSeeder extends Seeder
 
         DB::table('page')->insert([
             'title1'    => 'About Us',
-            'page_type' => 'about-us',
+            'lsug'    =>  str_slug('About Us'),
+            'page_type' => 'page',
             'status'    => 1,
             'show_in_menu' => 1,
             'rank'      => 2,

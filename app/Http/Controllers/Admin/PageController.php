@@ -65,12 +65,12 @@ class PageController extends AdminBaseController
 
         $data = [];
         $data['page_type'] = array(
-            'page' => 'Page',
-            'product_list' => 'Product',
-            'service'=> 'Service',
-            'request_quotation' => 'Request Quotation',
-            'inquiry_form' => 'Inquiry Form',
-            'home' => 'Home'
+            'home'        => 'Home',
+            'page'        => 'Page',
+            'service'     => 'Service',
+            'appointment' => 'Appointment',
+            'gallery'     => 'Gallery',
+            'contact-us'  => 'Contact Us',
         );
         $response = [];
         $response['service'] = OurService::where('status', 1)->pluck('title', 'slug');
@@ -111,10 +111,13 @@ class PageController extends AdminBaseController
         $data = [];
         $data['row'] = $this->model;
         $data['page_type'] = array(
-            'page' => 'Page', 'product_list' => 'Product','service'=> 'Service',
-            'request_quotation' => 'Request Quotation', 'inquiry_form' => 'Inquiry Form',
-            'home' => 'Home'
-            );
+                                'home'        => 'Home',
+                                'page'        => 'Page',
+                                'service'     => 'Service',
+                                'appointment' => 'Appointment',
+                                'gallery'     => 'Gallery',
+                                'contact-us'  => 'Contact Us',
+                             );
         $response = [];
         $response['service'] = OurService::where('status', 1)->pluck('title', 'slug');
         $data['page'] = Page::where('parent_id', 0)->pluck('title1', 'id');

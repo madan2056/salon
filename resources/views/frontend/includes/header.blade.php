@@ -57,9 +57,14 @@
                                                     @if($sub_menu->page_type == 'page')
 
                                                         <a href="{{ route('page', $sub_menu->slug) }}">{{ $sub_menu->title1 }}</a>
+
+                                                    @elseif($sub_menu->page_type == 'service')
+
+                                                        <a href="{{ route('service-detail', $sub_menu->slug) }}">{{ ucfirst($sub_menu->title1) }}</a>
+
                                                     @else
 
-                                                        <a href="#">{{ $sub_menu->title1 }}</a>
+                                                        <a href="{{ route($sub_menu->page_type) }}">{{ $sub_menu->title1 }}</a>
                                                     @endif
 
                                                 </li>
@@ -67,16 +72,21 @@
                                                 @endforeach
                                             </ul>
                                         </li>
+
                                      @else
                                         <li>
 
                                             @if($menu->page_type == 'page')
-
                                                 <a href="{{ route('page', $menu->slug) }}">{{ $menu->title1 }}</a>
+
+                                            @elseif($menu->page_type == 'service')
+
+                                                <a href="{{ route('service-detail', $menu->slug) }}">{{ ucfirst($menu->title1) }}</a>
 
                                             @else
 
-                                                <a href="/">{{ $menu->title1 }}</a>
+                                            <a href="{{ route($menu->page_type) }}">{{ $menu->title1 }}</a>
+
                                             @endif
 
                                         </li>
