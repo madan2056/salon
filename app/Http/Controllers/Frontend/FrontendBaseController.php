@@ -22,6 +22,7 @@ class FrontendBaseController extends Controller
     protected $menu;
     protected $service;
     protected $category;
+    protected $active_page;
 
     public function __construct()
     {
@@ -50,6 +51,7 @@ class FrontendBaseController extends Controller
                 $view->with('menus',      $this->menu);
                 $view->with('config',     ProfileSetting::first());
                 $view->with('footer_service', OurService::where('status', 1)->get());
+                $view->with('active_menu', $this->active_page);
 
                 $view->with('sidebar_video', CustomerTestimonials::where('type', 'happy_customer')->orderBy('id', 'DESC')->take(1)->first());
 

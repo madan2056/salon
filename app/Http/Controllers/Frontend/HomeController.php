@@ -36,6 +36,7 @@ class HomeController extends FrontendBaseController
           ->orderBy('rank')
           ->limit(6)
           ->get();
+      $this->active_page = 'home';
 
      return view(parent::loadDefaultVars('frontend.home.index'), compact('data'));
 
