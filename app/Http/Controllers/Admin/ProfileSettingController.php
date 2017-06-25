@@ -57,6 +57,7 @@ class ProfileSettingController extends AdminBaseController
             $ProfileSetting->update([
                 'company_name'  => $request->get('company_name'),
                 'email'         => $request->get('email'),
+                'phone'         => $request->get('phone'),
                 'address'       => $request->get('address'),
                 'logo'          => $this->__checkFileAndUpload($request),
                 'facebook_link' => $request->get('facebook_link'),

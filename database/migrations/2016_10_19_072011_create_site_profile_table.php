@@ -17,6 +17,7 @@ class CreateSiteProfileTable extends Migration
             $table->increments('id');
             $table->string('company_name',250)->nullable();
             $table->string('email',250)->nullable();
+            $table->string('phone',100)->nullable();
             $table->string('address',250)->nullable();
             $table->string('facebook_link',250)->nullable();
             $table->text('logo')->nullable();

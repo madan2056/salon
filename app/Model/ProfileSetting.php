@@ -16,7 +16,7 @@ class ProfileSetting extends Authenticatable
      */
     protected $fillable = [
         'id', 'company_name', 'email', 'address', 'facebook_link', 'logo'.
-        'google_plus', 'instagram', 'youtube', 'google_map'
+        'google_plus', 'instagram', 'youtube', 'google_map', 'phone'
     ];
 
 }

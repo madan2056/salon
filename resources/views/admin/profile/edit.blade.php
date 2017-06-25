@@ -35,6 +35,12 @@
                     </div>
 
                     <div class="form-group">
+                        {!! Form::label('phone', 'Phone' ) !!}
+                        {!! Form::text('phone', null, [ 'id' => 'phone', 'placeholder' => 'Phone' , 'class' => 'form-control' ]) !!}
+                    </div>
+
+
+                    <div class="form-group">
                         {!! Form::label('address', 'Address' ) !!}
                         {!! Form::text('address', null, [ 'id' => 'address', 'placeholder' => 'Address' , 'class' => 'form-control' ]) !!}
                     </div>
