@@ -36,6 +36,7 @@
         {!! Form::label('image', 'Image') !!}
 
         {!! Form::file('image', ['id' => 'file', 'class' => 'form-control']) !!}
+        <span><strong>Best Dimension:</strong> 600px * 600px</span>
     </div>
 
     <div id="uploadForm"></div>
