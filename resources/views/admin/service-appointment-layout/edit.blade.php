@@ -34,9 +34,6 @@
 
                   <div class="tab-content" id="render-html">
 
-                      <button class="btn btn-primary pull-right"> <i class="fa fa-plus"></i>  Add More Service List  </button> <br />
-                      <hr />
-
                       <div class="row">
                           <div class="col-lg-9">
                               <div class="form-group">
@@ -46,11 +43,6 @@
                                   'placeholder' => 'Title' , 'class' => 'form-control' ]) !!}
                               </div>
                           </div>
-
-                          <div class="col-lg-3">
-                              <button class="btn btn-danger"> <i class="fa fa-remove"></i> </button>
-                          </div>
-
                       </div>
 
                       <div class="row">
