@@ -49,6 +49,8 @@ class ServiceAppointmentLayoutController extends AdminBaseController
     {
         $data = [];
         $data['services'] = OurService::where('status', 1)->pluck('title', 'id');
+        $data['our_service_last'] = ServiceAppointmentLayout::orderBy('id', 'DESC')->first();
+        $data['last_order'] = ($data['our_service_last'])?$data['our_service_last']->rank + 10:10;
 
         return view(parent::loadDefaultVars($this->view_path.'.create'), compact('data'));
     }
@@ -57,6 +59,8 @@ class ServiceAppointmentLayoutController extends AdminBaseController
     {
        $data = ServiceAppointmentLayout::create([
             'title'  => $request->get('title'),
+            'rank'  => $request->get('rank'),
+            'status'  => $request->get('status'),
         ]);
 
         $data->services()->sync($request->has('service_name')?$request->get('service_name'):[]);
@@ -75,6 +79,8 @@ class ServiceAppointmentLayoutController extends AdminBaseController
         $data = $this->model;
         $data->update([
             'title'  => $request->get('title'),
+            'rank'  => $request->get('rank'),
+            'status'  => $request->get('status'),
         ]);
 
         $data->services()->sync($request->has('service_name')?$request->get('service_name'):[]);
@@ -91,6 +97,7 @@ class ServiceAppointmentLayoutController extends AdminBaseController
         $data['services'] = OurService::where('status', 1)->pluck('title', 'id');
         $data['service_appointment'] = ServiceAppointmentLayout::find($id);
         $data['service_first'] = $data['service_appointment']->services->pluck('id')->all();
+
 
         return view(parent::loadDefaultVars($this->view_path.'.edit'), compact('data'));
     }
