@@ -83,6 +83,7 @@ Route::get('/page/{url}',               [ 'as' => 'page',                       
 //Service Route
 Route::get('/service',                  [ 'as' => 'our_service',                 'uses' => 'Frontend\ServiceController@ourService']);
 Route::get('/services/{slug}', [ 'as' => 'service-detail',  'uses' => 'Frontend\ServiceController@detail']);
+Route::get('/features/{slug}', [ 'as' => 'feature-detail',  'uses' => 'Frontend\FeatureController@detail']);
 
 //Request Quotation Route
 Route::get('/request_quotation',        [ 'as' => 'request_quotation',             'uses' => 'Frontend\FormController@requestQuotation']);

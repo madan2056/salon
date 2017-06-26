@@ -20,11 +20,6 @@ class HomeController extends FrontendBaseController
      */
     public function index()
     {
-      /*  $data = [];
-        $data['services']    = OurService::where('status', 1)->orderBy('rank', 'asc')->take(5)->get();
-        $data['feature']     = OurFeature::where('status', 1)->orderBy('rank', 'asc')->take(4)->get();
-        $data['sample_work'] = SampleWork::where('status', 1)->orderBy('rank', 'asc')->take(8)->get();
-        $data['banner']      = Banner::where('status', 1)->orderBy('rank', 'asc')->take(10)->get();*/
 
       $data     = [];
       $data['services']  = OurService::where('status', 1)->limit(6)->get();
