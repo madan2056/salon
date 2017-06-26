@@ -42,6 +42,56 @@
                         </table>
                     @endforeach
 
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <td style="width: 20px">1.</td>
+                            <td style="width: 250px">Full Name</td>
+                            <td >{{  $data['appointment']->full_name }}</td>
+                        </tr>
+
+                            <tr>
+                                <td>2.</td>
+                                <td>Email</td>
+                                <td>{{  $data['appointment']->email }}</td>
+                            </tr>
+
+
+                        <tr>
+                            <td>3.</td>
+                            <td>Contact Number</td>
+                            <td>{{  $data['appointment']->contact_number }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>4.</td>
+                            <td>Address</td>
+                            <td>{{  $data['appointment']->address }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>5.</td>
+                            <td>Prefered Date</td>
+                            <td>{{  $data['appointment']->prefered_date }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>6.</td>
+                            <td>Prefered Time</td>
+                            <td>{{  $data['appointment']->prefered_time }}</td>
+                        </tr>
+                        <tr>
+                            <td>7.</td>
+                            <td>Message</td>
+                            <td>{{  $data['appointment']->message }}</td>
+                        </tr>
+                        <tr>
+                            <td>8.</td>
+                            <td> Appointment Submitted Date</td>
+                            <td>{{  $data['appointment']->submitted_at }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
 
                 </div>
 
