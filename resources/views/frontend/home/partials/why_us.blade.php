@@ -1,4 +1,4 @@
-@if ($data['services']->count() > 0)
+@if ($data['features']->count() > 0)
     <div class="whyUs">
         <div class="container">
             <div class="row">
@@ -8,12 +8,12 @@
                 <ul class="clearfix">
                     @foreach($data['features'] as $feature)
                         <li>
-                            <a href="{{ route('service_detail', $feature->id) }}" class="picBox">
+                            <a href="{{ route('feature-detail', $feature->slug) }}" class="picBox">
                                 <img src="{{ asset('images/our_feature/'.$feature->image) }}" alt="Quality Services"/>
                             </a>
-                            <h3><a href="{{ route('service_detail', $feature->id) }}">{{ $feature->title }}</a></h3>
+                            <h3><a href="{{ route('feature-detail', $feature->slug) }}">{{ $feature->title }}</a></h3>
                             {!! $feature->short_desc !!}
-                            <a href="{{ route('service_detail', ['url' => $feature->id]) }}">More</a>
+                            <a href="{{ route('feature-detail', ['url' => $feature->slug]) }}">More</a>
                         </li>
                         @endforeach
 

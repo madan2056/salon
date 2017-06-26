@@ -18,22 +18,13 @@ class ServiceController extends FrontendBaseController
     public function detail($slug) {
 
         $data = [];
-        $data['service-detail'] = AppHelper::getPageDataFromSlug('OurService', $slug);
+        $data['service-detail']  = AppHelper::getPageDataFromSlug('OurService', $slug);
         $data['service-feature'] = ServiceFeature::where('service_id', $data['service-detail']->id)->orderBy('rank', 'ASC')->get();
         $data['service-pricing'] = ServicePricing::where('service_id', $data['service-detail']->id)->orderBy('rank', 'ASC')->get();
         $data['service-related'] = OurService::where('status', 1)->where('id', '!=' ,$data['service-detail']->id)->inRandomOrder()->take(3)->get();
 
         return view(parent::loadDefaultVars('frontend.services.detail'), compact('data'));
 
-    }
-
-    public function ourService()
-    {
-        die;
-        $data['row']         = AppHelper::getDataByPage('our_service');
-        $data['our_service'] = AppHelper::getListingData('OurService', 6);
-
-        return view(parent::loadDefaultVars('frontend.service.index', $this->getServiceListMetaData($data)), compact('data'));
     }
 
     public function appointment()

@@ -65,7 +65,8 @@ class OurFeatureController extends AdminBaseController
     {
         OurFeature::create([
             'title'               => $request->get('title'),
-            'short_desc'         => $request->get('short_desc'),
+            'slug'                => str_slug($request->get('title')),
+            'short_desc'          => $request->get('short_desc'),
             'description'         => $request->get('description'),
             'image'               => $this->__checkFileAndUpload($request),
             'status'              => $request->get('status'),
@@ -99,9 +100,10 @@ class OurFeatureController extends AdminBaseController
         $this->existing_image = $data->image;
         $data->update([
             'title'              => $request->get('title'),
+            'slug'               => str_slug($request->get('title')),
             'short_desc'         => $request->get('short_desc'),
-            'description'         => $request->get('description'),
-            'image'               =>  $this->__checkFileAndUpload($request),
+            'description'        => $request->get('description'),
+            'image'              =>  $this->__checkFileAndUpload($request),
             'status'              => $request->get('status'),
             'rank'                => $request->get('rank'),
         ]);

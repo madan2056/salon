@@ -58,7 +58,7 @@
                               <div class="form-group">
                                   {!! Form::label('service_name', 'Choose Service' ) !!}
 
-                                  {!! Form::select('service_name[]',$data['services'], isset($data['service_appointment'])?$data['service_appointment']->services->pluck('id'):null, [
+                                  {!! Form::select('service_name[]',$data['services'], $data['service_first'], [
                                   'class' => 'form-control multi-service-name' , 'multiple' => 'multiple']) !!}
                               </div>
                           </div>

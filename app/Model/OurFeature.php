@@ -15,7 +15,7 @@ class OurFeature extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'id', 'title','image', 'short_desc', 'description', 'status','rank'
+       'id', 'title','image', 'short_desc', 'description', 'status','rank', 'slug'
 
     ];
 

@@ -16,7 +16,7 @@ $this->get(config('broadway.route.admin-panel'), [ 'as' => 'login', 'uses' => 'A
 $this->post(config('broadway.route.admin-panel'), 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout');
 
-Route::get('/services/{slug}', [ 'as' => 'service-detail',  'uses' => 'Frontend\ServiceController@detail']);
+
 
 //Admin Routes
 Route::group(['prefix' => 'admin', 'middleware'=> 'auth'], function () {
@@ -82,7 +82,8 @@ Route::get('/page/{url}',               [ 'as' => 'page',                       
 
 //Service Route
 Route::get('/service',                  [ 'as' => 'our_service',                 'uses' => 'Frontend\ServiceController@ourService']);
-Route::get('/service/{url}',            [ 'as' => 'service_detail',              'uses' => 'Frontend\ServiceController@serviceDetail']);
+Route::get('/services/{slug}', [ 'as' => 'service-detail',  'uses' => 'Frontend\ServiceController@detail']);
+Route::get('/features/{slug}', [ 'as' => 'feature-detail',  'uses' => 'Frontend\FeatureController@detail']);
 
 //Request Quotation Route
 Route::get('/request_quotation',        [ 'as' => 'request_quotation',             'uses' => 'Frontend\FormController@requestQuotation']);
