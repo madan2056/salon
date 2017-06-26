@@ -14,7 +14,10 @@
                     @foreach($data['service_features'] as $service_feature)
                     <tr id="feature-{{ $service_feature->id }}">
                         <td></td>
-                        <td> {!! Form::text('feature_title[]', isset($service_feature->title)?$service_feature->title:null, [ 'id' => 'feature_title', 'placeholder' => 'Title' , 'class' => 'form-control' ]) !!}</td>
+                        <td>
+                            {!! Form::hidden('feature_id[]', $service_feature->id) !!}
+                            {!! Form::text('feature_title[]', isset($service_feature->title)?$service_feature->title:null, [ 'id' => 'feature_title', 'placeholder' => 'Title' , 'class' => 'form-control' ]) !!}
+                        </td>
                         <td><button data-id="{{ $service_feature->id }}" data-table="feature"  class="btn btn-danger remove-row"><i class="fa fa-remove"></i> </button></td>
                     </tr>
                     @endforeach

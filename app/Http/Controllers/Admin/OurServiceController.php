@@ -84,7 +84,7 @@ class OurServiceController extends AdminBaseController
                 foreach ($request->get('feature_title') as $key =>  $feature_title) {
                     ServiceFeature::create([
                         'title'      => $feature_title,
-                        'rank'       => $key,
+                        'rank'       => $key + 1,
                         'service_id' => $service->id
                     ]);
                 }
@@ -120,6 +120,7 @@ class OurServiceController extends AdminBaseController
      * @return show views of edit
      */
     public function edit($id){
+
         if (!$this->idExist($id)) {
             return redirect()->route($this->scope.'.index')->withErrors(['message' => 'Invalid Id']);
         }
@@ -135,6 +136,7 @@ class OurServiceController extends AdminBaseController
 
     public function update(UpdateFormValidation $request, $id)
     {
+        //dd($request->all());
         if (!$this->idExist($id)) {
             return redirect()->route($this->scope.'.index')->withErrors(['message' => 'Invalid Id']);
         }
@@ -149,6 +151,78 @@ class OurServiceController extends AdminBaseController
             'status'              => $request->get('status'),
             'rank'                => $request->get('rank'),
         ]);
+
+        if($request->get('feature_title')) {
+
+            $feature_keys = [];
+            foreach ($request->get('feature_title') as $key =>  $feature_title) {
+
+                if ($request->has('feature_id')
+                    && array_key_exists($key, $request->get('feature_id'))
+                    && $request->get('feature_id')[$key] !== ''
+                ) {
+                    ServiceFeature::where('id', $request->get('feature_id')[$key])->update([
+                        'title'      => $feature_title,
+                        'rank'       => $key + 1,
+                    ]);
+                    $feature_keys[] = $request->get('feature_id')[$key];
+                } else {
+
+                    $feature = ServiceFeature::create([
+                        'title'      => $feature_title,
+                        'rank'       => $key + 1,
+                        'service_id' => $this->model->id
+                    ]);
+                    $feature_keys[] = $feature->id;
+                }
+            }
+
+            ServiceFeature::where('service_id', $this->model->id)
+                ->whereNotIn('id', $feature_keys)
+                ->delete();
+
+        } else {
+            ServiceFeature::where('service_id', $this->model->id)->delet();
+        }
+
+
+        if($request->get('pricing_title')) {
+
+            $pricing_keys = [];
+            foreach ($request->get('pricing_title') as $key =>  $pricing_title) {
+
+                if ($request->has('pricing_id')
+                    && array_key_exists($key, $request->get('pricing_id'))
+                    && $request->get('pricing_id')[$key] !== ''
+                ) {
+
+                    ServicePricing::where('id', $request->get('pricing_id')[$key])->update([
+                        'title'      => $pricing_title,
+                        'rank'       => $key + 1,
+                        'cost'       => $request->get('price')[$key],
+                    ]);
+                    $pricing_keys[] = $request->get('pricing_id')[$key];
+                } else {
+
+                    $pricing = ServicePricing::create([
+                        'title'      => $pricing_title,
+                        'rank'       => $key + 1,
+                        'service_id' => $this->model->id,
+                        'cost'       => $request->get('price')[$key],
+                    ]);
+                    $pricing_keys[] = $pricing->id;
+                }
+            }
+
+            ServicePricing::where('service_id', $this->model->id)
+                ->whereNotIn('id', $pricing_keys)
+                ->delete();
+
+        } else {
+            ServicePricing::where('service_id', $this->model->id)->delet();
+        }
+
+
         AppHelper::flash('success', 'Record has been updated Successfully');
         return redirect()->route($this->scope.'.index');
     }

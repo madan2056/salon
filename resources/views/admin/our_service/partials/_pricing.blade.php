@@ -14,7 +14,10 @@
                 @foreach($data['service_pricing'] as $service_pricing)
                     <tr id="pricing-{{ $service_pricing->id }}">
                         <td></td>
-                        <td> {!! Form::text('pricing_title[]', isset($service_pricing->title)?$service_pricing->title:null, [ 'id' => 'pricing_title', 'placeholder' => 'Title' , 'class' => 'form-control' ]) !!}</td>
+                        <td>
+                            {!! Form::hidden('pricing_id[]', $service_pricing->id) !!}
+                            {!! Form::text('pricing_title[]', isset($service_pricing->title)?$service_pricing->title:null, [ 'id' => 'pricing_title', 'placeholder' => 'Title' , 'class' => 'form-control' ]) !!}</td>
+                        <td> {!! Form::text('price[]', isset($service_pricing->cost)?$service_pricing->cost:null, [ 'id' => 'price', 'placeholder' => 'Price' , 'class' => 'form-control' ]) !!}</td>
                         <td><button data-id="{{ $service_pricing->id }}" data-table="pricing" class="btn btn-danger remove-row"><i class="fa fa-remove"></i> </button></td>
                     </tr>
                 @endforeach
