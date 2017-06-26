@@ -37,6 +37,7 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Title</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                       </thead>
@@ -45,6 +46,14 @@
                         <tr>
                             <td></td>
                             <td>{{ $data->title }}</td>
+                            <td>
+                                @if($data->status == 1)
+                                    <button type="button" class="btn  btn-success btn-xs">Active</button>
+                                @else
+                                    <button type="button" class="btn  btn-warning btn-xs">InActive</button>
+                                @endif
+                            </td>
+
                             <td>
                                 <a href="{{ route('appointment-layout.edit',['id' => $data->id]) }}" class="pull-left" title="Click To Edit">
                                     <button class="btn btn-xs btn-info"><i class="glyphicon glyphicon-pencil"></i></button>    &nbsp;&nbsp;

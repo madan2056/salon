@@ -76,8 +76,9 @@ class ServiceController extends FrontendBaseController
             }
         }
 
-        return redirect()->back();
+        $requests->session()->flash('message', 'Appointment has been sent Successfully');
 
+        return redirect()->back();
     }
 
   /*

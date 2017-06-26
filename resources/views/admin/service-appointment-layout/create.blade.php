@@ -25,7 +25,7 @@
                 <div class="tab-content" id="render-html">
 
                     <div class="row">
-                        <div class="col-lg-9">
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 {!! Form::label('title', 'Title' ) !!}
 
@@ -33,7 +33,35 @@
                                 'placeholder' => 'Title' , 'class' => 'form-control' ]) !!}
                             </div>
                         </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                {!! Form::label('rank', 'Rank' ) !!}
 
+                                {!! Form::text('rank', isset($data['last_order'])?$data['last_order']:null, [
+                                'placeholder' => 'Rank' , 'class' => 'form-control' ]) !!}
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                {!! Form::label('status', 'Status' ) !!}
+
+                                <div class="control-group">
+                                    <div class="radio">
+                                        <label>
+                                            {!! Form::radio('status', 1, true, [ 'class' => 'ace' ]) !!}
+                                            <span class="lbl"> Active</span>
+                                        </label>
+
+                                        <label>
+                                            {!! Form::radio('status', 0, false, [ 'class' => 'ace' ]) !!}
+                                            <span class="lbl"> Inactive</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row">

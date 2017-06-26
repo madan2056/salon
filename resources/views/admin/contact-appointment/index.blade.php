@@ -26,9 +26,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    @if (session()->has('message'))
-                        {!! session()->get('message') !!}
-                    @endif
+
                     <table id="table" class="table table-bordered">
                       <thead style="color: #fff; background-color: #2795e9;border-color: rgba(0,0,0,0.2);">
                         <tr>

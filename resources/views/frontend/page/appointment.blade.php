@@ -1,6 +1,7 @@
 @extends('frontend.layout.master')
 @push('css')
-
+<link href="{{asset('css/bootstrap-datepicker.min.css')}}" rel="stylesheet" />
+<link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet" />
 @endpush
 
 @section('content')
@@ -24,16 +25,24 @@
                     <div class="leftSide">
                         <p>Please select the appropriate service you want to take appointment for.</p>
                         <div class="appointmentFormPackage">
+                            @if (count($errors) > 0)
                             <div class="errorMessage">
                                 <ul>
-                                    <li>Please enter a valid E-mail Id.</li>
-                                    <li>Please enter your contact number.</li>
-                                    <li>Please choose a appropriate service.</li>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
-                            <div class="successMessage"> Thank you for choosing our service. We will get back to you shortly! </div>
+
+                            @endif
+
+                            @if (session()->has('message'))
+                                <div class="successMessage">
+                                {!! session()->get('message') !!}
+                                </div>
+                            @endif
                             <div class="clear"></div>
-                            <form action="{{ route('appointment') }}" method="post">
+                            <form action="{{ route('appointment') }}" id="form" method="post">
                                 {!! csrf_field() !!}
                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -119,13 +128,13 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
                                                 <label>Prefered Date</label>
-                                                <input type="text" class="form-control" name="prefered_date" placeholder="Prefered Date" />
+                                                <input type="text" class="form-control datepicker" name="prefered_date" placeholder="Prefered Date" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
                                                 <label>Prefered Time</label>
-                                                <input type="text" class="form-control" name="prefered_time" placeholder="Prefered Time" />
+                                                <input type="text" class="form-control datetimepicker3" name="prefered_time" placeholder="Prefered Time" />
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
@@ -151,3 +160,68 @@
     </div>
 
 @endsection
+
+@push('scripts')
+
+<script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datetimepicker.js') }}"></script>
+
+<script type="text/javascript">
+
+    $('.datepicker').datepicker({
+        startDate: '1d'
+    });
+
+    $('.datetimepicker3').datetimepicker({
+        format: 'LT'
+    });
+
+    $( document ).ready( function () {
+        $( "#form" ).validate( {
+            rules: {
+                full_name: "required",
+                contact_number: "required",
+                address: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone_number: {
+                    required: true,
+                    minlength: 5
+                },
+                prefered_date: "required",
+                prefered_time: "required",
+                message: "required",
+
+            },
+            messages: {
+                full_name: "Please enter your full name",
+                contact_number: "Please enter your contact number",
+                address: "Please enter your address",
+                email: "Please enter a valid email address",
+                message: "Message field is required",
+            },
+            errorElement: "em",
+            errorPlacement: function ( error, element ) {
+                // Add the `help-block` class to the error element
+                error.addClass( "help-block" );
+
+                if ( element.prop( "type" ) == "radio" ) {
+                    error.insertAfter( element.parents( ".error-wrapper" ) );
+                } else {
+                    error.insertAfter( element );
+                }
+            },
+            highlight: function ( element, errorClass, validClass ) {
+                $( element ).parents( ".form-group" ).addClass( "has-error" ).removeClass( "has-success" );
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $( element ).parents( ".form-group" ).addClass( "has-success" ).removeClass( "has-error" );
+            }
+        } );
+    } );
+</script>
+
+
+@endpush
