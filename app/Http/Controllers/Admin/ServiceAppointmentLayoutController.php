@@ -105,7 +105,6 @@ class ServiceAppointmentLayoutController extends AdminBaseController
         $data->services()->sync([]);
         $result = ServiceAppointmentLayout::destroy($id);
 
-
         AppHelper::flash('success', 'Record has deleted successfully');
         return redirect()->route('appointment-layout.index');
     }

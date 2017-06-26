@@ -101,5 +101,5 @@ Route::get('/testimonials',          ['as'=>'testimonials',                     
 
 Route::get('/contact-us',            ['as'=>'contact-us',                           'uses'=>'Frontend\FormController@contactUs']);
 Route::post('/contact-us',           ['as'=>'contact-us.post',                      'uses'=>'Frontend\FormController@contactSendEmail']);
-Route::get('appointment', [ 'as' => 'appointment', 'uses' => 'Frontend\PageController@appointment']);
+Route::get('appointment', [ 'as' => 'appointment', 'uses' => 'Frontend\ServiceController@appointment']);
 Route::get('gallery', [ 'as' => 'gallery', 'uses' => 'Frontend\PageController@gallery']);

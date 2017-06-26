@@ -19,7 +19,10 @@ class OurService extends Authenticatable
 
     ];
 
-
+    public function servicesPricing()
+    {
+        return $this->hasMany('App\Model\ServicePricing', 'service_id');
+    }
 
 
 }

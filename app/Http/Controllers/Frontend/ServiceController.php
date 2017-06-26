@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Model\Album;
 use App\Model\Gallery;
 use App\Model\OurService;
+use App\Model\ServiceAppointmentLayout;
 use App\Model\ServiceFeature;
 use App\Model\ServicePricing;
 use AppHelper;
@@ -29,7 +30,9 @@ class ServiceController extends FrontendBaseController
 
     public function appointment()
     {
-        return view(parent::loadDefaultVars($this->view_path.'appointment'), compact('data'));
+        $service_appointment = ServiceAppointmentLayout::orderBy('rank','ASC')->get();
+
+        return view(parent::loadDefaultVars('frontend.page.appointment'), compact('service_appointment'));
     }
 
   /*
