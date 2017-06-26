@@ -20,8 +20,38 @@
             <div class="nav-tabs-custom">
                 <div class="tab-content">
 
-
-                    <h1>Show Appointment data here</h1>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th style="width: 10px">Name</th>
+                                <th colspan="3">{{ $data['appointment']->full_name }}</th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10px">Email</th>
+                                <th colspan="3">{{ $data['appointment']->email }}</th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10px">Contact No.</th>
+                                <th colspan="3">{{ $data['appointment']->contact_no }}</th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10px">Address</th>
+                                <th colspan="3">{{ $data['appointment']->address }}</th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10px">Prefered Date</th>
+                                <th colspan="3">{{ $data['appointment']->prefered_date }}</th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10px">Prefered Time</th>
+                                <th colspan="3">{{ $data['appointment']->prefered_time }}</th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10px">Message</th>
+                                <th colspan="3">{{ $data['appointment']->message }}</th>
+                            </tr>
+                        </tbody>
+                    </table>
 
 
                     @foreach($data['rows'] as $item)
