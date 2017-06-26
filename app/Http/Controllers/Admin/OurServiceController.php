@@ -233,15 +233,17 @@ class OurServiceController extends AdminBaseController
             return redirect()->route($this->scope.'index')->withErrors(['message' => 'Invalid Id']);
         }
 
+        ServiceFeature::where('service_id', $id)->delete();
+        ServicePricing::where('service_id', $id)->delete();
+
         $result = OurService::destroy($id);
-            if($result){
-                $this->existing_image = $this->model->image;
-                
-                if (!empty($this->existing_image)) {
-                    $this->__unlinkFile($this->imagePath, $this->existing_image);
-                    $this->__unlinkFileThumbnails($this->image_thumb_dimensions, $this->imagePath, $this->existing_image);
-                }
+        if($result){
+            $this->existing_image = $this->model->image;
+            if (!empty($this->existing_image)) {
+                $this->__unlinkFile($this->imagePath, $this->existing_image);
+                $this->__unlinkFileThumbnails($this->image_thumb_dimensions, $this->imagePath, $this->existing_image);
             }
+        }
 
         AppHelper::flash('success', 'Record has deleted successfully');
         return redirect()->route($this->scope.'.index');
