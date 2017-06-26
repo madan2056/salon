@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InquiryFormValidateRequest extends FormRequest
+class AppointmentFormValidateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,10 +26,10 @@ class InquiryFormValidateRequest extends FormRequest
     {
         return [
             'full_name'    => 'required',
-            'email'         => 'email|required',
-            'phone_number'  => 'required',
+            'email'         => 'required',
             'address'       => 'required',
-            'detail'        => 'required',
+            'message'        => 'required',
         ];
     }
+
 }

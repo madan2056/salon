@@ -21,8 +21,15 @@ $this->post('logout', 'Auth\LoginController@logout');
 //Admin Routes
 Route::group(['prefix' => 'admin', 'middleware'=> 'auth'], function () {
 
+    Route::get('contact-appointment/index',[ 'as'=>'contact-appointment.index',
+        'uses' => 'Admin\ContactAppointmentController@index']);
+
+    Route::get('contact-appointment/show/{id}',[ 'as'=>'contact-appointment.show',
+        'uses' => 'Admin\ContactAppointmentController@show']);
+
     //config route
     Route::get('profile_setting/edit',         [ 'as'=>'profile_setting.edit',    'uses' => 'Admin\ProfileSettingController@edit']);
+
     Route::post('profile_setting/update/{id}', [ 'as'=>'profile_setting.update',  'uses' => 'Admin\ProfileSettingController@store']);
 
     Route::get('appointment-layout/index',         [ 'as'=>'appointment-layout.index',    'uses' => 'Admin\ServiceAppointmentLayoutController@index']);
@@ -102,4 +109,5 @@ Route::get('/testimonials',          ['as'=>'testimonials',                     
 Route::get('/contact-us',            ['as'=>'contact-us',                           'uses'=>'Frontend\FormController@contactUs']);
 Route::post('/contact-us',           ['as'=>'contact-us.post',                      'uses'=>'Frontend\FormController@contactSendEmail']);
 Route::get('appointment', [ 'as' => 'appointment', 'uses' => 'Frontend\ServiceController@appointment']);
+Route::post('appointment', [ 'as' => 'appointment', 'uses' => 'Frontend\ServiceController@appointmentSubmit']);
 Route::get('gallery', [ 'as' => 'gallery', 'uses' => 'Frontend\PageController@gallery']);

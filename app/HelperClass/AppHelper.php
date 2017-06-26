@@ -2,7 +2,9 @@
 namespace App\HelperClass;
 
 
+use App\Model\OurService;
 use App\Model\Page;
+use App\Model\ServicePricing;
 use App\Model\SiteConfig;
 
 class AppHelper
@@ -35,6 +37,11 @@ class AppHelper
 					</div>";
 
         request()->session()->flash('message', $message);
+    }
+
+    public function formatDate($format, $date)
+    {
+        return date($format, strtotime($date));
     }
 
     protected function checkBootstrapAlertClass($message_type)
@@ -204,6 +211,13 @@ class AppHelper
         }
 
         return $detailFinal;
+    }
+
+
+    public function getValueForService($service_price_id, $service_id){
+
+        return $service_price_id.','.$service_id;
+
     }
 
 }

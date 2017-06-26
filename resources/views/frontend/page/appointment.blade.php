@@ -33,7 +33,8 @@
                             </div>
                             <div class="successMessage"> Thank you for choosing our service. We will get back to you shortly! </div>
                             <div class="clear"></div>
-                            <form>
+                            <form action="{{ route('appointment') }}" method="post">
+                                {!! csrf_field() !!}
                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                                     @foreach($service_appointment as $key => $service_appointment)
@@ -60,7 +61,7 @@
 
                                                                 <h3>{{ $service->title }}</h3>
 
-                                                                @endif
+                                                            @endif
 
                                                             <ul class="clearfix">
 
@@ -69,7 +70,7 @@
                                                                     <li>
                                                                         <div class="checkbox">
                                                                             <label>
-                                                                                <input type="checkbox">
+                                                                                <input type="checkbox" name="service_price[]" value="{{ AppHelper::getValueForService($service_appointment->id, $service->id)  }}">
                                                                                 {{ $service_appointment->title }}
                                                                                 <span>({{ $service_appointment->cost }})</span>
                                                                             </label>
@@ -94,43 +95,43 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
                                                 <label>Full Name</label>
-                                                <input type="text" class="form-control" placeholder="Full Name" />
+                                                <input type="text" class="form-control" name="full_name" placeholder="Full Name" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
                                                 <label>Email Id</label>
-                                                <input type="email" class="form-control" placeholder="Email Id" />
+                                                <input type="email" class="form-control" name="email" placeholder="Email Id" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
                                                 <label>Contact No.</label>
-                                                <input type="tel" class="form-control" placeholder="Contact No." />
+                                                <input type="tel" class="form-control" name="contact_number" placeholder="Contact No." />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control" placeholder="Address" />
+                                                <input type="text" class="form-control" name="address" placeholder="Address" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
                                                 <label>Prefered Date</label>
-                                                <input type="text" class="form-control" placeholder="Prefered Date" />
+                                                <input type="text" class="form-control" name="prefered_date" placeholder="Prefered Date" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
                                                 <label>Prefered Time</label>
-                                                <input type="text" class="form-control" placeholder="Prefered Time" />
+                                                <input type="text" class="form-control" name="prefered_time" placeholder="Prefered Time" />
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
                                             <div class="form-group">
                                                 <label>Message</label>
-                                                <textarea class="form-control"></textarea>
+                                                <textarea class="form-control" name="message"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
