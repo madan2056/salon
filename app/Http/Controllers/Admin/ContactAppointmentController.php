@@ -48,11 +48,23 @@ class ContactAppointmentController extends AdminBaseController
         return view(parent::loadDefaultVars($this->view_path.'.index'), compact('data'));
     }
 
-    public function show($id) {
+    public function show($id)
+    {
+
         $data = [];
         $data['appointment'] = Appointment::find($id);
         $data['service-price'] = ServiceAppointment::where('appointment_id', $data['appointment']->id)
             ->get();
+
+        $data['rows'] = [];
+        if ($data['service-price']->count() > 0) {
+            foreach ($data['service-price'] as $key => $item) {
+                $data['rows'][$item->service_id]['service'] = $item->service_title;
+                $data['rows'][$item->service_id]['price_data'][$key]['id'] = $item->service_pricing_title;
+                $data['rows'][$item->service_id]['price_data'][$key]['price_title'] = $item->service_pricing_title;
+                $data['rows'][$item->service_id]['price_data'][$key]['price'] = $item->service_pricing_cost;
+            }
+        }
 
         return view(parent::loadDefaultVars($this->view_path.'.show'), compact('data'));
     }
