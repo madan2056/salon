@@ -18,7 +18,7 @@ class ServiceController extends FrontendBaseController
     public function detail($slug) {
 
         $data = [];
-        $data['service-detail'] = AppHelper::getPageDataFromSlug('OurService', $slug);
+        $data['service-detail']  = AppHelper::getPageDataFromSlug('OurService', $slug);
         $data['service-feature'] = ServiceFeature::where('service_id', $data['service-detail']->id)->orderBy('rank', 'ASC')->get();
         $data['service-pricing'] = ServicePricing::where('service_id', $data['service-detail']->id)->orderBy('rank', 'ASC')->get();
         $data['service-related'] = OurService::where('status', 1)->where('id', '!=' ,$data['service-detail']->id)->inRandomOrder()->take(3)->get();
