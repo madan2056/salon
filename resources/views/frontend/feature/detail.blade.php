@@ -20,10 +20,14 @@
     <div class="PageArea">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
                     <div class="leftSide">
                         <p>
-                            <img src="{{ asset('images/our_feature/'.$data['feature-detail']->image) }}" alt="{{ $data['feature-detail']->title }}" />
+                            @if($data['feature-detail']->image)
+                                <img src="{{ asset('images/our_feature/'.$data['feature-detail']->image) }}"
+                                     alt="{{ $data['feature-detail']->title }}" />
+                            @endif
                           {!! $data['feature-detail']->description !!}
                         </p>
                     </div>

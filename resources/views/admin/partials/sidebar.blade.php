@@ -74,7 +74,7 @@
             </li>
             <li {!! Request::is('admin/contact-appointment*')?'class="active"':'' !!}>
                 <a href="{{ route('contact-appointment.index') }}">
-                    <i class="fa fa-lists"></i>Appointment
+                    <i class="fa fa-book"></i>Appointment
                 </a>
             </li>
             <li {!! Request::is('admin/profile_setting*')?'class="active"':'' !!}>
