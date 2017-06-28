@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.sendgrid.net'),
+    'host' => env('MAIL_HOST', 'smtp.salonanspa.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,7 +84,7 @@ return [
     |
     */
 
-    'username' => 'creativelinknepal',
+    'username' => 'office@salonanspa.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +97,7 @@ return [
     |
     */
 
-    'password' => 'creativelinknepal667',
+    'password' => 'salon@456U',
 
     /*
     |--------------------------------------------------------------------------
