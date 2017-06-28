@@ -19,7 +19,7 @@ class PageController extends FrontendBaseController
         $data = [];
         $data['row'] = AppHelper::getPageDataFromSlug('Page', $slug);
 
-        return view(parent::loadDefaultVars($this->view_path.'detail', $this->getDetailPageMetaData($data)), compact('data'));
+        return view(parent::loadDefaultVars($this->view_path.'detail', ['page_title' => $data['row']->title1]), compact('data'));
     }
 
     protected function getDetailPageMetaData(array $data)

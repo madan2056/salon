@@ -23,7 +23,7 @@ class FormController extends FrontendBaseController
         $data['row']      = AppHelper::getDataByPage('request_quotation');
         $data['services'] = OurService::where('status', 1)->pluck('title','id');
 
-        return view(parent::loadDefaultVars('frontend.form.request_quotation',$this->getDetailPageMetaData($data)), compact('data'));
+        return view(parent::loadDefaultVars('frontend.form.request_quotation', ['page_title' => 'Contact Us']), compact('data'));
     }
 
     /**
@@ -115,7 +115,7 @@ class FormController extends FrontendBaseController
     {
         $data = [];
         $this->page = 'contact-us';
-        return view(parent::loadDefaultVars('frontend.home.contact'), compact('data'));
+        return view(parent::loadDefaultVars('frontend.home.contact', ['page_title' => 'Contact Us']), compact('data'));
     }
 
     public function contactSendEmail(FormValidation $request)

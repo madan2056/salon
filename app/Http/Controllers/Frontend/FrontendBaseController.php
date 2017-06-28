@@ -55,14 +55,21 @@ class FrontendBaseController extends Controller
 
                 $view->with('sidebar_video', CustomerTestimonials::where('type', 'happy_customer')->orderBy('id', 'DESC')->take(1)->first());
 
+                if (array_key_exists('page_title', $data))
+                    $seo_title = $data['page_title'].' '.config('broadway.site_configuration_keys.SEO_TITLE_APPEND');
+                    else
+                        $seo_title = config('broadway.site_configuration_keys.SEO_TITLE').' '.config('broadway.site_configuration_keys.SEO_TITLE_APPEND');
+                $view->with('title', $seo_title);
+
+
                /*
                 $view->with('services',   $this->service);
                 $view->with('categories', $this->category);
                 $view->with('site_info',  $this->site_info);
+                */
 
 
-
-                list($title, $description, $keywords) = [
+                /*list($title, $description, $keywords) = [
                     $this->getPageTitle($data),
                     $this->getPageDescription($data),
                     $this->getPageKeywords($data),
@@ -93,7 +100,7 @@ class FrontendBaseController extends Controller
 
     }
 
-
+/*
     protected function getMetaData($data)
     {
         return [
@@ -118,7 +125,7 @@ class FrontendBaseController extends Controller
         ];
     }
 
-/*
+
     protected function getPageTitle($params)
     {
         if (request()->is('error/*')) {
@@ -138,9 +145,9 @@ class FrontendBaseController extends Controller
             }
 
         return AppHelper::getConfigValue('SEO_TITLE') . AppHelper::getConfigValue('SEO_TITLE_APPEND');
-    }*/
+    }
 
-   /* protected function getPageDescription()
+    protected function getPageDescription()
     {
         return AppHelper::getConfigValue('SEO_DESCRIPTION');
     }
@@ -148,9 +155,9 @@ class FrontendBaseController extends Controller
     protected function getPageKeywords()
     {
         return AppHelper::getConfigValue('SEO_KEYWORDS');
-    }*/
+    }
 
-   /* protected function getSocialData($params, $sm_type)
+    protected function getSocialData($params, $sm_type)
     {
         switch ($sm_type) {
 

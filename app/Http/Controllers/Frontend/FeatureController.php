@@ -19,11 +19,7 @@ class FeatureController extends FrontendBaseController
         $data = [];
         $data['feature-detail']  = AppHelper::getPageDataFromSlug('OurFeature', $slug);
 
-     /*   $data['service-feature'] = OurFeature::where('service_id', $data['service-detail']->id)
-                                        ->orderBy('rank', 'ASC')
-                                        ->get();*/
-
-        return view(parent::loadDefaultVars('frontend.feature.detail'), compact('data'));
+        return view(parent::loadDefaultVars('frontend.feature.detail', ['page_title' => $data['feature-detail']->title]), compact('data'));
 
     }
   /*

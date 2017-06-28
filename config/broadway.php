@@ -120,7 +120,7 @@ return [
 
 
     'site_configuration_keys' => [
-        'COMPANY_NAME' => 'CreativeLinkNepal',
+        'COMPANY_NAME' => 'Salonanspa.com',
         'FB_LINK' => '',
         'FB_APP_ID' => '', // app id to track page visits by facebook insight
 
@@ -131,10 +131,10 @@ return [
         'LINKED_IN_LINK' => '',
         'GOOGLE_PLUS_LINK' => '',
 
-        'SEO_TITLE' => 'Creative Link Nepal',
-        'SEO_TITLE_APPEND' => ' :: CreativeLinkNepal',
-        'SEO_DESCRIPTION' => 'Product. Category. Our Service. Sample Work',
-        'SEO_KEYWORDS' => 'product, category, our services, our feature, sample work',
+        'SEO_TITLE' => 'Salon And Day Spa',
+        'SEO_TITLE_APPEND' => ' :: salonanspa.com',
+        'SEO_DESCRIPTION' => '',
+        'SEO_KEYWORDS' => '',
         'SITE_IMAGE' => 'images/profile_setting/Creative-Logo.png',
 
         /* Default titles for pages */

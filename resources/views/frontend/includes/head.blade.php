@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@yield('title')</title>
+    <title>{{ $title }}</title>
     <meta name="description" content=" " />
     <meta name="keywords" content=" " />
     <!-- Meta Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link href="favicon.ico" rel="shortcut icon" />
+    <link href="{{ asset('assets/frontend/favicon.ico') }}" rel="shortcut icon" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Slab:400,700" rel="stylesheet">
     <!-- JS File -->

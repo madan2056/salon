@@ -36,8 +36,6 @@ class HomeController extends FrontendBaseController
       $this->active_page = 'home';
 
      return view(parent::loadDefaultVars('frontend.home.index'), compact('data'));
-
-//        return view(parent::loadDefaultVars('frontend.index', $this->getMetaDataForHomePage()),compact('data'));
     }
 
   /*  protected function getMetaDataForHomePage()

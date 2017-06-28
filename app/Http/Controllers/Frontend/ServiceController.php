@@ -28,7 +28,7 @@ class ServiceController extends FrontendBaseController
         $data['service-pricing'] = ServicePricing::where('service_id', $data['service-detail']->id)->orderBy('rank', 'ASC')->get();
         $data['service-related'] = OurService::where('status', 1)->where('id', '!=' ,$data['service-detail']->id)->inRandomOrder()->take(3)->get();
 
-        return view(parent::loadDefaultVars('frontend.services.detail'), compact('data'));
+        return view(parent::loadDefaultVars('frontend.services.detail', ['page_title' =>  $data['service-detail']->title]), compact('data'));
 
     }
 
@@ -36,7 +36,7 @@ class ServiceController extends FrontendBaseController
     {
         $service_appointment = ServiceAppointmentLayout::orderBy('rank','ASC')->get();
 
-        return view(parent::loadDefaultVars('frontend.page.appointment'), compact('service_appointment'));
+        return view(parent::loadDefaultVars('frontend.page.appointment', ['page_title' => 'Appointment']), compact('service_appointment'));
     }
 
     public function appointmentSubmit( AppointmentFormValidateRequest $requests)
