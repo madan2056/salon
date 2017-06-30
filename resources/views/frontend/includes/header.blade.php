@@ -15,6 +15,9 @@
                     @if ($config->facebook_link)
                         <li class="fb"><a href="{{ $config->facebook_link }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
                     @endif
+                    @if (isset($config->ye_link))
+                        <li class="ye"><a href="{{ $config->ye_link }}" target="_blank"><i class="fa fa fa-yelp"></i></a></li>
+                    @endif
                     @if ($config->google_plus)
                         <li class="gp"><a href="{{ $config->google_plus }}" target="_blank"><i class="fa fa-google-plus"></i></a></li>
                     @endif
