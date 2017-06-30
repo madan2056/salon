@@ -56,11 +56,8 @@
                                     <button class="btn btn-xs btn-info"><i class="glyphicon glyphicon-eye-open"></i></button>    &nbsp;&nbsp;
                                 </a>
 
-                                <a>
-
-                                    <button title="Click To Delete" type="submit" class="btn btn-xs btn-danger bootbox-confirm">
-                                        <i class="glyphicon glyphicon-trash"></i></button>
-
+                                <a href="{{ route('contact-appointment.destroy',['id' => $data->id]) }}" class="delete-image-confirm">
+                                    <button title="Click To Delete" type="submit" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
                                 </a>
 
                             </td>

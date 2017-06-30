@@ -65,6 +65,8 @@ class ProfileSettingController extends AdminBaseController
                 'instagram' => $request->get('instagram'),
                 'youtube' => $request->get('youtube'),
                 'google_map' => $request->get('google_map'),
+                'ye_link'    => $request->get('ye_link'),
+                'sending_email'=> $request->get('sending_email'),
             ]);
 
             if($ProfileSetting){

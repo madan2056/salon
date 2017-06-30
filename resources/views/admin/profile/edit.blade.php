@@ -35,6 +35,11 @@
                     </div>
 
                     <div class="form-group">
+                        {!! Form::label('sending_email', 'Sending Email' ) !!}
+                        {!! Form::email('sending_email', null, [ 'id' => 'sending_email', 'placeholder' => 'Sending Email' , 'class' => 'form-control' ]) !!}
+                    </div>
+
+                    <div class="form-group">
                         {!! Form::label('phone', 'Phone' ) !!}
                         {!! Form::text('phone', null, [ 'id' => 'phone', 'placeholder' => 'Phone' , 'class' => 'form-control' ]) !!}
                     </div>
@@ -80,6 +85,11 @@
                     <div class="form-group">
                         {!! Form::label('google_map', 'Google Map Code' ) !!}
                         {!! Form::textarea('google_map', null, [ 'id' => 'google_map', 'placeholder' => 'Google Map Code' , 'class' => 'form-control' ]) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('ye_link', 'Ye link' ) !!}
+                        {!! Form::textarea('ye_link', null, [ 'id' => 'ye_link', 'placeholder' => 'Ye Link' , 'class' => 'form-control' ]) !!}
                     </div>
 
                 </div>

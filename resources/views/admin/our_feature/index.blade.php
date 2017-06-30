@@ -68,11 +68,14 @@
                                 <a href="{{ route($scope.'.edit',['id' => $data->id]) }}" class="pull-left" title="Click To Edit">
                                     <button class="btn btn-xs btn-info"><i class="glyphicon glyphicon-pencil"></i></button>    &nbsp;&nbsp;
                                 </a>
-                                <a>
-                                    {{ Form::open(array('url' => 'admin/'.$scope.'/' . $data->id, 'id'=>'delete-current-list')) }}{{ Form::hidden('_method', 'DELETE') }}
-                                    <button title="Click To Delete" type="submit" class="btn btn-xs btn-danger bootbox-confirm"><i class="glyphicon glyphicon-trash"></i></button>
-                                    {{ Form::close() }}
-                                </a>
+
+                                    <a>
+                                        {{ Form::open(array('url' => 'admin/'.$scope.'/' . $data->id, 'id'=>'delete-current-list-'.$data->id.'')) }}
+                                        {{ Form::hidden('_method', 'DELETE') }}
+                                        <button title="Click To Delete" type="submit" data-attr="{{ $data->id }}" class="btn btn-xs btn-danger bootbox-confirm"><i class="glyphicon glyphicon-trash"></i></button>
+                                        {{ Form::close() }}
+                                    </a>
+
                             </td>
                         </tr>
                     @endforeach

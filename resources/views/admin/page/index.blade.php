@@ -74,8 +74,9 @@
                                 @if($data->slug == 'home' || $data->slug == 'about-us' || $data->slug == 'what-is-and-why-cosmetic-tattoo')
                                     @else
                                     <a>
-                                        {{ Form::open(array('url' => 'admin/'.$scope.'/' . $data->id, 'id'=>'delete-current-list')) }}{{ Form::hidden('_method', 'DELETE') }}
-                                        <button title="Click To Delete" type="submit" class="btn btn-xs btn-danger bootbox-confirm"><i class="glyphicon glyphicon-trash"></i></button>
+                                        {{ Form::open(array('url' => 'admin/'.$scope.'/' . $data->id, 'id'=>'delete-current-list-'.$data->id.'')) }}
+                                        {{ Form::hidden('_method', 'DELETE') }}
+                                        <button title="Click To Delete" type="submit" data-attr="{{ $data->id }}" class="btn btn-xs btn-danger bootbox-confirm"><i class="glyphicon glyphicon-trash"></i></button>
                                         {{ Form::close() }}
                                     </a>
                                 @endif

@@ -27,6 +27,8 @@ class HomeController extends FrontendBaseController
       $data['about_page'] = Page::where('slug', 'about-us')->first();
       $data['testimonial'] = CustomerTestimonials::where('type', 'testimonials')->orderBy('id', 'DESC')->take(1)->first();
       $data['why_page'] = Page::where('slug', 'what-is-and-why-cosmetic-tattoo')->first();
+
+
       $data['banner']= Banner::where('status', 1)->orderBy('rank','ASC')->get();
       $data['gallery'] = SampleWork::select('title', 'image')
           ->where('status', 1)

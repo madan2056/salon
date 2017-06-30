@@ -27,6 +27,9 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth'], function () {
     Route::get('contact-appointment/show/{id}',[ 'as'=>'contact-appointment.show',
         'uses' => 'Admin\ContactAppointmentController@show']);
 
+    Route::get('contact-appointment/destroy/{id}',[ 'as'=>'contact-appointment.destroy',
+        'uses' => 'Admin\ContactAppointmentController@destroy']);
+
     //config route
     Route::get('profile_setting/edit',         [ 'as'=>'profile_setting.edit',    'uses' => 'Admin\ProfileSettingController@edit']);
 

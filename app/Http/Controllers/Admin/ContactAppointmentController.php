@@ -69,4 +69,12 @@ class ContactAppointmentController extends AdminBaseController
         return view(parent::loadDefaultVars($this->view_path.'.show'), compact('data'));
     }
 
+    public function destroy($id) {
+       $appointment =  Appointment::find($id);
+
+       $appointment->delete();
+        AppHelper::flash('success', 'Record has deleted successfully');
+        return redirect()->route($this->scope.'.index')->withErrors(['message' => 'Record deleted successfully.']);
+    }
+
 }

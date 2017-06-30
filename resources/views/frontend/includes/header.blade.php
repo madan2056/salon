@@ -87,8 +87,11 @@
                                                 <a href="{{ route('page', $menu->slug) }}">{{ $menu->title1 }}</a>
 
                                             @elseif($menu->page_type == 'service')
+                                                @php
+                                                   $our_service = \App\Model\OurService::where('slug', $menu->title1)->first();
+                                                @endphp
 
-                                                <a href="{{ route('service-detail', $menu->slug) }}">{{ ucfirst($menu->title1) }}</a>
+                                                <a href="{{ route('service-detail', $menu->slug) }}">{{ ucfirst($our_service->title) }}</a>
 
                                             @else
 
