@@ -52,6 +52,7 @@ class FrontendBaseController extends Controller
                 $view->with('config',     ProfileSetting::first());
                 $view->with('footer_service', OurService::where('status', 1)->get());
                 $view->with('active_menu', $this->active_page);
+                $view->with('footer_about_page', Page::where('slug', 'about-us')->first());
 
                 $view->with('sidebar_video', CustomerTestimonials::where('type', 'happy_customer')->orderBy('id', 'DESC')->take(1)->first());
 

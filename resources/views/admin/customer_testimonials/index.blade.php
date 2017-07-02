@@ -39,7 +39,6 @@
                             <th>Type</th>
                             <th>Video Title</th>
                             <th>Video Url</th>
-                            <th>Customer Image</th>
                             <th>Customer Name</th>
                             <th>Status</th>
                             <th>Order</th>
@@ -53,16 +52,8 @@
                             <td>{{ $data->type }}</td>
                             <td>{{ $data->video_title }}</td>
                             <td>{{ $data->video_url }}</td>
-                            <td></td>
                             <td>{{ $data->customer_name }}</td>
-                            {{--<td> @if(isset($data->image))--}}
-                                    {{--@if($data->image)--}}
-                                        {{--<img src="{{ asset('images/banner/'.$data->image) }}"--}}
-                                             {{--alt="{{ $data->image }}" style="max-width:50px; max-height:50px;">--}}
-                                    {{--@else--}}
-                                        {{--<p>No Image</p>--}}
-                                    {{--@endif--}}
-                                {{--@endif</td>--}}
+
                              <td>
                                 @if($data->status == 1)
                                     <button type="button" class="btn  btn-success btn-xs">Active</button>
@@ -76,8 +67,9 @@
                                     <button class="btn btn-xs btn-info"><i class="glyphicon glyphicon-pencil"></i></button>    &nbsp;&nbsp;
                                 </a>
                                 <a>
-                                    {{ Form::open(array('url' => 'admin/'.$scope.'/' . $data->id, 'id'=>'delete-current-list')) }}{{ Form::hidden('_method', 'DELETE') }}
-                                    <button title="Click To Delete" type="submit" class="btn btn-xs btn-danger bootbox-confirm"><i class="glyphicon glyphicon-trash"></i></button>
+                                    {{ Form::open(array('url' => 'admin/'.$scope.'/' . $data->id, 'id'=>'delete-current-list-'.$data->id.'')) }}
+                                    {{ Form::hidden('_method', 'DELETE') }}
+                                    <button title="Click To Delete" type="submit" data-attr="{{ $data->id }}" class="btn btn-xs btn-danger bootbox-confirm"><i class="glyphicon glyphicon-trash"></i></button>
                                     {{ Form::close() }}
                                 </a>
                             </td>

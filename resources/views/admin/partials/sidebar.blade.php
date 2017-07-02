@@ -62,11 +62,11 @@
                     <i class="fa fa-users"></i>Users
                 </a>
             </li>
-            <li {!! Request::is('admin/site_config*')?'class="active"':'' !!}>
+          {{--  <li {!! Request::is('admin/site_config*')?'class="active"':'' !!}>
                 <a href="{{ route('site_config.index') }}">
                     <i class="fa fa-gears"></i>Site Config
                 </a>
-            </li>
+            </li>--}}
             <li {!! Request::is('admin/appointment-layout*')?'class="active"':'' !!}>
                 <a href="{{ route('appointment-layout.index') }}">
                     <i class="fa fa-image"></i>Service Appointment Layout

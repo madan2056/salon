@@ -60,7 +60,8 @@ class CustomerTestimonialsController extends AdminBaseController
 
     protected function getData()
     {
-        $data = CustomerTestimonials::select( 'id', 'status', 'type', 'video_title','video_url','customer_name','customer_image','customer_comment','customer_address', 'rank')->orderBy('id', 'asc')->get();
+        $data = CustomerTestimonials::select( 'id', 'status', 'type', 'video_title','video_url','customer_name',
+            'customer_address', 'rank')->orderBy('id', 'asc')->get();
         return $data;
     }
 

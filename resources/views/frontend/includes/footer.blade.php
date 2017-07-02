@@ -44,8 +44,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
+                        @if(isset($footer_about_page->short_description))
                         <h2>About Us</h2>
-                        <p>Salon and Day Spa justifies the essence of its name. Conveniently located in the Portsmouth Rd, in Manassas, Virginia, Salon and Day Spa has been fulfilling its purpose of providing best beauty service at best price. The customers’ satisfaction has always been our utmost priority and we are proud to state that we have always maintained our motto of service since establishment. Though established and operated for two years, Salon and Day Spa has the expertise of the certified beauty experts with more than 10 years’ experience in related field. <a href="aboutus.php">Read More</a></p>
+                        <p>{!! $footer_about_page->short_description !!}
+                            <a href="{{ route('page', $footer_about_page->slug) }}">Read More</a></p>
+                        @endif
                         <ul>
                             @if ($config->facebook_link)
                                 <li class="fb"><a href="{{ $config->facebook_link }}" target="_blank"><i class="fa fa-facebook"></i></a></li>

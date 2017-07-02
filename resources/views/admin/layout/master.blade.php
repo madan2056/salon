@@ -105,9 +105,10 @@
 
         $(".bootbox-confirm").on('click', function () {
             var action = false;
+            var id = $(this).attr('data-attr');
             bootbox.confirm("Are you sure?", function (result) {
                 if (result) {
-                    $('#delete-current-list').submit();
+                    $('#delete-current-list-'+id).submit();
                 }
             });
             return action;
