@@ -27,7 +27,7 @@ class AppointmentFormValidateRequest extends FormRequest
         return [
             'full_name'    => 'required',
             'email'         => 'required',
-            'address'       => 'required',
+            'prefered_date'       => 'required',
             'message'        => 'required',
         ];
     }

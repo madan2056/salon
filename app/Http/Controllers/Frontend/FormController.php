@@ -52,8 +52,8 @@ class FormController extends FrontendBaseController
             $data['email'] = $email;
             Mail::send(config('broadway.mail_path.request_quotation_path'),
                 ['data' => $request->all(),'service'=>$service_title ], function ($m) use ($data) {
-                $m->to($data['email'], $data['name'])->subject('Request Quotation Form.');
-            });
+                    $m->to($data['email'], $data['name'])->subject('Request Quotation Form.');
+                });
         }
 
         AppHelper::flash('success', 'Request Quotation Has Been Sent Successfully');
@@ -121,7 +121,7 @@ class FormController extends FrontendBaseController
     public function contactSendEmail(FormValidation $request)
     {
         $profile = ProfileSetting::first();
-        Mail::to($profile->email)
+        Mail::to($profile->sending_email)
             ->send(new ContactFormMail($request));
 
         $message  = 'Thank you, we have received your message.';

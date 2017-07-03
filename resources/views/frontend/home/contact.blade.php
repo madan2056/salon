@@ -28,18 +28,18 @@
                                 <div class="successMessage"> {{ request()->session()->get('curd_message') }} </div>
                             @endif
                             <div class="row">
-                                <form method="post" action="{{ route('contact-us.post') }}">
+                                <form method="post" id="formValidation" action="{{ route('contact-us.post') }}">
                                     {!! csrf_field() !!}
                                     <div class="col-md-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Full Name</label>
-                                            <input type="text" name="full_name" class="form-control" placeholder="Full Name" required/>
+                                            <label>Full Name <span style="color: red;">*</span> </label>
+                                            <input type="text" name="full_name" class="form-control" placeholder="Full Name" />
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Email ID</label>
-                                            <input type="email" name="email" class="form-control" placeholder="Email ID" required/>
+                                            <label>Email ID <span style="color: red;">*</span> </label>
+                                            <input type="email" name="email" class="form-control" placeholder="Email ID" />
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-xs-12">
@@ -56,8 +56,8 @@
                                     </div>
                                     <div class="col-xs-12">
                                         <div class="form-group">
-                                            <label>Message / Comments</label>
-                                            <textarea class="form-control" name="detail" required></textarea>
+                                            <label>Message / Comments <span style="color: red;">*</span></label>
+                                            <textarea class="form-control" name="detail" ></textarea>
                                         </div>
                                     </div>
                                     <div class="col-xs-12">
@@ -94,6 +94,48 @@
 
 @endsection
 
-@section('extra-js')
+@push('scripts')
+    <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datetimepicker.js') }}"></script>
 
-    @endsection
+    <script type="text/javascript">
+
+        $('#date-picker').datepicker();
+
+        $( document ).ready( function () {
+            $( "#formValidation" ).validate( {
+                rules: {
+                    full_name: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    detail: "required",
+                },
+                messages: {
+                    full_name: "Please enter your full name",
+                    email: "Please enter a valid email address",
+                    detail: "Message field is required",
+                },
+                errorElement: "em",
+                errorPlacement: function ( error, element ) {
+                    // Add the `help-block` class to the error element
+                    error.addClass( "help-block" );
+
+                    if ( element.prop( "type" ) == "radio" ) {
+                        error.insertAfter( element.parents( ".error-wrapper" ) );
+                    } else {
+                        error.insertAfter( element );
+                    }
+                },
+                highlight: function ( element, errorClass, validClass ) {
+                    $( element ).parents( ".form-group" ).addClass( "has-error" ).removeClass( "has-success" );
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $( element ).parents( ".form-group" ).addClass( "has-success" ).removeClass( "has-error" );
+                }
+            } );
+        } );
+    </script>
+
+    @endpush
