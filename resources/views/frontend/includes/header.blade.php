@@ -5,7 +5,7 @@
                 <ul class="contactlTop clearfix">
                     <li>Call Us: {{ $config->phone }}</li>
                     @if(isset($config->email))
-                    <li>Email Us: {{ $config->email }}</li>
+                        <li>Email Us: {{ $config->email }}</li>
                     @endif
                     @if(isset($config->address))
                         <li>Locate Us: {{ $config->address }}</li>
@@ -63,27 +63,30 @@
 
                                                 @foreach($menu->pages as $sub_menu)
 
-                                                <li>
-                                                    @if($sub_menu->page_type == 'page')
+                                                    <li>
+                                                        @if($sub_menu->page_type == 'page')
 
-                                                        <a href="{{ route('page', $sub_menu->slug) }}">{{ $sub_menu->title1 }}</a>
+                                                            <a href="{{ route('page', $sub_menu->slug) }}">{{ $sub_menu->title1 }}</a>
 
-                                                    @elseif($sub_menu->page_type == 'service')
+                                                        @elseif($sub_menu->page_type == 'service')
+                                                            @php
+                                                                $our_service = \App\Model\OurService::where('slug', $sub_menu->title1)->first();
+                                                            @endphp
 
-                                                        <a href="{{ route('service-detail', $sub_menu->slug) }}">{{ ucfirst($sub_menu->title1) }}</a>
+                                                            <a href="{{ route('service-detail', $sub_menu->slug) }}">{{ ucfirst($our_service->title) }}</a>
 
-                                                    @else
+                                                        @else
 
-                                                        <a href="{{ route($sub_menu->page_type) }}">{{ $sub_menu->title1 }}</a>
-                                                    @endif
+                                                            <a href="{{ route($sub_menu->page_type) }}">{{ $sub_menu->title1 }}</a>
+                                                        @endif
 
-                                                </li>
+                                                    </li>
 
                                                 @endforeach
                                             </ul>
                                         </li>
 
-                                     @else
+                                    @else
                                         <li>
 
                                             @if($menu->page_type == 'page')
@@ -91,14 +94,14 @@
 
                                             @elseif($menu->page_type == 'service')
                                                 @php
-                                                   $our_service = \App\Model\OurService::where('slug', $menu->title1)->first();
+                                                    $our_service = \App\Model\OurService::where('slug', $menu->title1)->first();
                                                 @endphp
 
                                                 <a href="{{ route('service-detail', $menu->slug) }}">{{ ucfirst($our_service->title) }}</a>
 
                                             @else
 
-                                            <a href="{{ route($menu->page_type) }}">{{ $menu->title1 }}</a>
+                                                <a href="{{ route($menu->page_type) }}">{{ $menu->title1 }}</a>
 
                                             @endif
 

@@ -1,7 +1,6 @@
 @extends('frontend.layout.master')
 @push('css')
-<link href="{{asset('css/bootstrap-datepicker.min.css')}}" rel="stylesheet" />
-<link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet" />
+<link href="{{asset('css/bootstrap-datepicker.css')}}" rel="stylesheet" />
 @endpush
 
 @section('content')
@@ -103,19 +102,19 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
-                                                <label>Full Name</label>
+                                                <label>Full Name <span style="color: red;">*</span></label>
                                                 <input type="text" class="form-control" name="full_name" placeholder="Full Name" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
-                                                <label>Email Id</label>
+                                                <label>Email Id <span style="color: red;">*</span></label>
                                                 <input type="email" class="form-control" name="email" placeholder="Email Id" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
-                                                <label>Contact No.</label>
+                                                <label>Contact No. </label>
                                                 <input type="tel" class="form-control" name="contact_number" placeholder="Contact No." />
                                             </div>
                                         </div>
@@ -126,20 +125,20 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
-                                            <div class="form-group">
-                                                <label>Prefered Date</label>
-                                                <input type="text" class="form-control datepicker" name="prefered_date" placeholder="Prefered Date" />
+                                            <div class="form-group datepicker">
+                                                <label>Prefered Date <span style="color: red;">*</span></label>
+                                                <input type="text" id="date-picker" class="form-control" name="prefered_date" placeholder="Prefered Date" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group">
                                                 <label>Prefered Time</label>
-                                                <input type="text" class="form-control datetimepicker3" name="prefered_time" placeholder="Prefered Time" />
+                                                <input type="text" class="form-control" name="prefered_time" placeholder="Prefered Time" />
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
                                             <div class="form-group">
-                                                <label>Message</label>
+                                                <label>Message <span style="color: red;">*</span></label>
                                                 <textarea class="form-control" name="message"></textarea>
                                             </div>
                                         </div>
@@ -163,42 +162,28 @@
 
 @push('scripts')
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
 <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap-datetimepicker.js') }}"></script>
 
 <script type="text/javascript">
 
-    $('.datepicker').datepicker({
-        startDate: '1d'
-    });
+    $('#date-picker').datepicker();
 
-    $('.datetimepicker3').datetimepicker({
-        format: 'LT'
-    });
 
     $( document ).ready( function () {
         $( "#form" ).validate( {
             rules: {
                 full_name: "required",
-                contact_number: "required",
-                address: "required",
                 email: {
                     required: true,
                     email: true
                 },
-                phone_number: {
-                    required: true,
-                    minlength: 5
-                },
                 prefered_date: "required",
-                prefered_time: "required",
                 message: "required",
-
             },
             messages: {
                 full_name: "Please enter your full name",
-                contact_number: "Please enter your contact number",
-                address: "Please enter your address",
                 email: "Please enter a valid email address",
                 message: "Message field is required",
             },

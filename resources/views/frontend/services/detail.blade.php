@@ -30,14 +30,14 @@
                                     <h2>Features of {{ $data['service-detail']->title }}</h2>
                                     <ul>
                                         @foreach($data['service-feature'] as $service_feature)
-                                             <li>{{ $service_feature->title }}</li>
+                                            <li>{{ $service_feature->title }}</li>
                                         @endforeach
                                     </ul>
-                                    <div class="more"> <a href="#">Make An Appointment</a> </div>
+                                    <div class="more"> <a href="{{ route('appointment') }}">Make An Appointment</a> </div>
                                 </div>
                             </div>
                             <div class="col-lg-7 col-md-6 col-xs-12">
-                               <p>{!! $data['service-detail']->description !!}</p>
+                                <p>{!! $data['service-detail']->description !!}</p>
                             </div>
                         </div>
                         <div class="clear"></div>
