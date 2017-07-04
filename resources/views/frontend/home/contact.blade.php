@@ -25,7 +25,7 @@
                         <h2>Contact Form</h2>
                         <div class="contactForm">
                             @if (request()->session()->has('curd_message'))
-                                <div class="successMessage"> {{ request()->session()->get('curd_message') }} </div>
+                                <div class="successMessage"> {!! request()->session()->get('curd_message') !!}  </div>
                             @endif
                             <div class="row">
                                 <form method="post" id="formValidation" action="{{ route('contact-us.post') }}">

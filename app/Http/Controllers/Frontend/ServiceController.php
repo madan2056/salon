@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Requests;
+use App\Mail\AppointmentFormMail;
 use App\Model\Album;
 use App\Model\Appointment;
 use App\Model\Gallery;
 use App\Model\OurService;
+use App\Model\ProfileSetting;
 use App\Model\ServiceAppointment;
 use App\Model\ServiceAppointmentLayout;
 use App\Model\ServiceFeature;
@@ -16,6 +18,7 @@ use App\Http\Requests\AppointmentFormValidateRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Symfony\Component\EventDispatcher\Tests\Service;
+use Mail;
 
 class ServiceController extends FrontendBaseController
 {
@@ -75,6 +78,13 @@ class ServiceController extends FrontendBaseController
                 $service_appointment->save();
             }
         }
+        $profile = ProfileSetting::first();
+
+        Mail::to($profile->sending_email)
+            ->send(new AppointmentFormMail($requests, $appointment));
+
+        $message  = 'Thank you, we have received your message.';
+        $message .= '<br> If you did not get the email, please, check your spam folder.';
 
         $requests->session()->flash('message', 'Appointment has been sent Successfully');
 
