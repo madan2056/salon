@@ -29,12 +29,13 @@
                     <div class="col-lg-3 col-sm-6 col-xs-12">
                         <h2>Opening Hours</h2>
                         <ul class="openingHrs">
-                            <li>Monday: 8:00 AM to 18:00 PM</li>
-                            <li>Tuesday: 8:00 AM to 18:00 PM</li>
-                            <li>Wednesday: 8:00 AM to 18:00 PM</li>
-                            <li>Thursday: 8:00 AM to 18:00 PM</li>
-                            <li>Friday: 8:00 AM to 18:00 PM</li>
-                            <li>Saturday and Sunday: Closed</li>
+                            <li>Sunday: 10:00 AM to 7:00 PM</li>
+                            <li>Monday: 10:00 AM to 7:00 PM</li>
+                            <li>Tuesday: 10:00 AM to 7:00 PM</li>
+                            <li>Wednesday: 10:00 AM to 7:00 PM</li>
+                            <li>Thursday: 10:00 AM to 7:00 PM</li>
+                            <li>Friday: 10:00 AM to 8:00 PM</li>
+                            <li>Saturday: 10:00 AM to 8:00 PM</li>
                         </ul>
                     </div>
                 </div>
