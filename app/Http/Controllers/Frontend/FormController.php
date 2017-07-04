@@ -13,7 +13,6 @@ use AppHelper, Mail;
 
 class FormController extends FrontendBaseController
 {
-
     /**
      * Show the request quotation form.
      */
