@@ -5,7 +5,7 @@
     <!-- If you delete this meta tag, Half Life 3 will never be released. -->
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Email</title>
+    <title>Appointment</title>
     <style>
         * {
             margin: 0;
@@ -404,32 +404,25 @@
 <table class="body-wrap">
     <tr>
         <td></td>
-
-        <td style="border-bottom: 1px solid #dedede;padding-bottom: 15px;">
-            <p>New contact made</p>
-        </td>
-
         <td class="container" bgcolor="#fff">
             <div class="content">
-
                 @foreach($appointment['rows'] as $item)
-                    <table class="table table-bordered">
+                    <table cellpadding="1" cellspacing="1"  style="border-collapse: collapse;margin-bottom: 20px;">
                         <tbody>
                         <tr>
-                            <th style="width: 10px">#</th>
-                            <th colspan="3">{{ $item['service'] }}</th>
+                            <th colspan="2"><span style="float: left;">{{ $item['service'] }}</span></th>
                         </tr>
                         @foreach($item['price_data'] as $price)
                             <tr>
-                                <td></td>
+                                <td># </td>
                                 <td>{{ $price['price_title'] . ' ' . $price['price'] }}</td>
                             </tr>
                         @endforeach
-
                         </tbody>
                     </table>
                 @endforeach
 
+                <hr style="margin-top: 20px;margin-bottom: 20px;">
 
                 <table cellpadding="0" cellspacing="0"  style="border-collapse: collapse;">
 
