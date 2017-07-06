@@ -56,7 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'info@salonanspa.com',
+        'address' => 'sagaryonjan015@gmail.com',
+        //'address' => 'info@salonanspa.com',
         'name' => 'Salon And Day Spa',
     ],
 
@@ -97,7 +98,7 @@ return [
     |
     */
 
-    'password' => 'salon@456U',
+    'password' => 'sgryon015',
 
     /*
     |--------------------------------------------------------------------------

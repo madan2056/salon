@@ -448,10 +448,10 @@
                                 <span style="font-weight: bold;margin-right: 7px">Contact :</span> {{ $request->get('contact_number') }}
                             </p>
                             <p>
-                                <span style="font-weight: bold;margin-right: 7px">Prefered Date :</span> {{ $requests->get('prefered_date') }}
+                                <span style="font-weight: bold;margin-right: 7px">Prefered Date :</span> {{ $request->get('prefered_date') }}
                             </p>
                             <p>
-                                <span style="font-weight: bold;margin-right: 7px">Prefered Time :</span> {{ $requests->get('prefered_time') }}
+                                <span style="font-weight: bold;margin-right: 7px">Prefered Time :</span> {{ $request->get('prefered_time') }}
                             </p>
                             <p>
                                 <span style="font-weight: bold;margin-right: 7px">Message :</span> {!! $request->get('message') !!}

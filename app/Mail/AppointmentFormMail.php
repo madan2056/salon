@@ -28,7 +28,6 @@ class AppointmentFormMail extends Mailable
     public function __construct(Request $request, Appointment $appointment)
     {
         $this->request = $request;
-
         $this->appointment = $this->getValue($appointment);
 
     }
@@ -58,6 +57,7 @@ class AppointmentFormMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.appointment_email');
+        // ['request' => $this->request, 'appointment' => $this->appointment]
+        return $this->subject('Appointment Mail')->view('email.appointment_email');
     }
 }
